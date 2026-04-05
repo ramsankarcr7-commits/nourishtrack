@@ -808,8 +808,8 @@ const MEALS=[
 ];
 
 // ─── STATE ─────────────────────────────────────────────────────────
-let state=JSON.parse(localStorage.getItem('nt4_state')||'{}');
-let goals=JSON.parse(localStorage.getItem('nt4_goals')||'null')||{cal:2000,p:150,c:200,f:65,steps:10000,bw:70};
+let state=JSON.parse(localStorage.getItem('nt3_state')||'{}');
+let goals=JSON.parse(localStorage.getItem('nt3_goals')||'null')||{cal:2000,p:150,c:200,f:65,steps:10000,bw:70};
 let activeMeal=null, selectedFood=null, currentFoodFilter='all';
 let exercises=[];
 let charts={};
@@ -820,7 +820,7 @@ function dayData(date){
   if(!state[date].meals)state[date].meals={breakfast:[],lunch:[],dinner:[],snacks:[]};
   return state[date];
 }
-function save(){localStorage.setItem('nt4_state',JSON.stringify(state));localStorage.setItem('nt4_goals',JSON.stringify(goals));}
+function save(){localStorage.setItem('nt3_state',JSON.stringify(state));localStorage.setItem('nt3_goals',JSON.stringify(goals));}
 function r(n){return Math.round(n);}
 function fd(n,d=1){return(+n).toFixed(d);}
 
