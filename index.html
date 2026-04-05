@@ -26,7 +26,6 @@
 html{scroll-behavior:smooth;}
 body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;font-size:15px;}
 
-/* TOPBAR */
 .topbar{position:sticky;top:0;z-index:200;background:rgba(242,240,235,0.93);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--border2);padding:0 24px;display:flex;align-items:center;gap:12px;height:56px;}
 .logo{font-size:16px;font-weight:600;color:var(--green2);letter-spacing:-0.3px;white-space:nowrap;flex-shrink:0;}
 .logo em{font-style:normal;color:var(--text);font-weight:400;}
@@ -36,7 +35,6 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min
 .nav-btn:hover{color:var(--text);background:rgba(0,0,0,0.05);}
 .nav-btn.active{background:var(--green);color:#fff;box-shadow:0 1px 4px rgba(26,153,112,0.35);}
 
-/* LAYOUT */
 .page{display:none;padding:20px;max-width:960px;margin:0 auto;animation:fi .2s ease;}
 .page.active{display:block;}
 @keyframes fi{from{opacity:0;transform:translateY(5px);}to{opacity:1;transform:none;}}
@@ -44,7 +42,6 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min
 .page-title{font-size:20px;font-weight:600;letter-spacing:-0.4px;}
 .page-sub{font-size:11px;color:var(--text3);font-family:'DM Mono',monospace;}
 
-/* METRICS */
 .metrics{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:9px;margin-bottom:14px;}
 .metric{background:var(--card);border-radius:14px;border:1px solid var(--border);padding:13px 15px;box-shadow:var(--sh);transition:box-shadow .2s;}
 .metric:hover{box-shadow:var(--sh2);}
@@ -57,12 +54,10 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min
 .metric.blue .metric-value{color:var(--blue);}
 .metric.purple .metric-value{color:var(--purple);}
 
-/* CARD */
 .card{background:var(--card);border-radius:16px;border:1px solid var(--border);padding:16px 18px;box-shadow:var(--sh);margin-bottom:12px;}
 .card-title{font-size:10px;font-weight:600;color:var(--text3);text-transform:uppercase;letter-spacing:0.7px;margin-bottom:12px;}
 .two-col{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
 
-/* MEAL SECTIONS */
 .meals-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
 .meal-card{background:var(--card);border-radius:16px;border:1px solid var(--border);padding:15px 16px;box-shadow:var(--sh);}
 .meal-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;}
@@ -75,13 +70,11 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min
 .meal-food-list{display:flex;flex-direction:column;gap:4px;min-height:20px;}
 .meal-empty{font-size:11px;color:var(--text3);font-style:italic;padding:4px 0;}
 
-/* Meal color themes */
 .meal-breakfast .meal-icon{background:var(--amber-bg);}
 .meal-lunch .meal-icon{background:var(--green-bg);}
 .meal-dinner .meal-icon{background:var(--coral-bg);}
 .meal-snacks .meal-icon{background:var(--purple-bg);}
 
-/* FOOD ITEMS */
 .food-item{display:flex;align-items:center;gap:7px;padding:6px 9px;background:var(--bg);border-radius:8px;border:1px solid var(--border);transition:background .12s;}
 .food-item:hover{background:var(--bg2);}
 .food-name{font-weight:500;font-size:12px;flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
@@ -91,27 +84,24 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min
 .tag-p{background:var(--blue-bg);color:var(--blue-t);}
 .tag-c{background:var(--amber-bg);color:var(--amber-t);}
 .tag-f{background:var(--coral-bg);color:var(--coral-t);}
+.tag-packed{background:var(--purple-bg);color:var(--purple-t);}
 .del-btn{background:none;border:none;color:var(--text3);cursor:pointer;font-size:12px;padding:2px 5px;border-radius:5px;flex-shrink:0;transition:all .12s;line-height:1;}
 .del-btn:hover{background:var(--coral-bg);color:var(--coral);}
 
-/* MACRO BARS */
 .macro-row{display:flex;align-items:center;gap:9px;margin-bottom:9px;}
 .macro-label{width:52px;font-size:12px;color:var(--text2);font-weight:500;}
 .macro-track{flex:1;background:var(--bg2);border-radius:20px;height:6px;overflow:hidden;}
 .macro-fill{height:6px;border-radius:20px;transition:width .5s cubic-bezier(.4,0,.2,1);}
 .macro-num{width:85px;text-align:right;font-size:11px;color:var(--text3);font-family:'DM Mono',monospace;}
 
-/* PROGRESS BAR */
 .prog-wrap{background:var(--bg2);border-radius:20px;height:6px;overflow:hidden;margin-top:6px;}
 .prog-fill{height:6px;border-radius:20px;transition:width .5s cubic-bezier(.4,0,.2,1);}
 
-/* INPUTS */
 input[type=text],input[type=number],input[type=date],select{width:100%;padding:9px 12px;border:1px solid var(--border2);border-radius:9px;font-size:13px;font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);outline:none;transition:border-color .15s,box-shadow .15s;-webkit-appearance:none;appearance:none;}
 input:focus,select:focus{border-color:var(--green);box-shadow:0 0 0 3px rgba(26,153,112,0.1);}
 .input-row{display:flex;gap:7px;}
 .input-row input,.input-row select{flex:1;}
 
-/* BUTTONS */
 .btn{padding:9px 16px;background:var(--green);color:#fff;border:none;border-radius:9px;font-size:13px;font-weight:500;cursor:pointer;font-family:'DM Sans',sans-serif;white-space:nowrap;transition:background .15s,transform .1s;box-shadow:0 1px 4px rgba(26,153,112,0.28);}
 .btn:hover{background:var(--green2);}
 .btn:active{transform:scale(0.97);}
@@ -123,10 +113,10 @@ input:focus,select:focus{border-color:var(--green);box-shadow:0 0 0 3px rgba(26,
 .workout-name{font-weight:500;font-size:13px;}
 .workout-meta{font-size:11px;color:var(--text3);font-family:'DM Mono',monospace;}
 
-/* MODAL OVERLAY */
+/* WORKOUT MODAL */
 .modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.35);z-index:500;display:flex;align-items:center;justify-content:center;padding:20px;backdrop-filter:blur(4px);}
 .modal-overlay.hidden{display:none;}
-.modal{background:var(--card);border-radius:18px;border:1px solid var(--border);padding:22px;width:100%;max-width:460px;box-shadow:0 8px 40px rgba(0,0,0,0.18);animation:fi .18s ease;}
+.modal{background:var(--card);border-radius:18px;border:1px solid var(--border);padding:22px;width:100%;max-width:520px;box-shadow:0 8px 40px rgba(0,0,0,0.18);animation:fi .18s ease;max-height:90vh;overflow-y:auto;}
 .modal-title{font-size:15px;font-weight:600;margin-bottom:14px;display:flex;align-items:center;gap:8px;}
 .modal-meal-badge{padding:3px 10px;border-radius:20px;font-size:11px;font-weight:500;}
 
@@ -135,15 +125,27 @@ input:focus,select:focus{border-color:var(--green);box-shadow:0 0 0 3px rgba(26,
 .sug-item{padding:9px 13px;cursor:pointer;border-bottom:1px solid var(--border);font-size:12px;display:flex;justify-content:space-between;align-items:center;transition:background .1s;}
 .sug-item:last-child{border-bottom:none;}
 .sug-item:hover{background:var(--bg);}
-.sug-meta{font-size:10px;color:var(--text3);font-family:'DM Mono',monospace;}
+.sug-meta{font-size:10px;color:var(--text3);font-family:'DM Mono',monospace;text-align:right;max-width:160px;}
+.sug-badge{padding:1px 6px;border-radius:10px;font-size:9px;font-weight:600;margin-left:5px;background:var(--purple-bg);color:var(--purple-t);}
+.sug-cat{font-size:9px;color:var(--text3);font-weight:500;padding:5px 13px 4px;background:var(--bg2);text-transform:uppercase;letter-spacing:0.5px;}
 
 /* ADD PANEL */
 .add-panel{background:var(--bg);border-radius:10px;border:1px solid var(--border2);padding:12px;margin-top:8px;display:none;}
-.add-panel-name{font-size:12px;font-weight:600;margin-bottom:9px;color:var(--text2);}
+.add-panel-name{font-size:12px;font-weight:600;margin-bottom:4px;color:var(--text2);}
+.add-panel-hint{font-size:10px;color:var(--text3);margin-bottom:9px;font-style:italic;}
 .fields-row{display:flex;gap:7px;flex-wrap:wrap;align-items:flex-end;}
 .field-group{display:flex;flex-direction:column;gap:3px;}
 .field-group label{font-size:9px;color:var(--text3);font-weight:500;text-transform:uppercase;letter-spacing:0.5px;}
 .field-group input{width:72px;padding:7px 9px;font-size:12px;}
+.field-group input.wide{width:110px;}
+.auto-badge{background:var(--green-bg);color:var(--green-t);font-size:9px;font-weight:600;padding:1px 6px;border-radius:10px;margin-left:5px;}
+
+/* WORKOUT MODAL SPECIFIC */
+.exercise-list{display:flex;flex-direction:column;gap:7px;margin-top:10px;}
+.ex-item{background:var(--bg);border-radius:9px;padding:9px 11px;border:1px solid var(--border);display:flex;align-items:center;gap:8px;flex-wrap:wrap;}
+.ex-name{font-weight:500;font-size:12px;flex:1;min-width:120px;}
+.ex-meta{font-size:11px;color:var(--text3);font-family:'DM Mono',monospace;}
+.calorie-preview{background:var(--green-bg);color:var(--green-t);border-radius:9px;padding:9px 13px;font-size:12px;font-weight:500;margin-top:10px;text-align:center;display:none;}
 
 /* GOALS */
 .goals-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:9px;}
@@ -165,17 +167,12 @@ input:focus,select:focus{border-color:var(--green);box-shadow:0 0 0 3px rgba(26,
 .r-val{font-size:18px;font-weight:600;}
 .r-val.green{color:var(--green2);}.r-val.coral{color:var(--coral);}.r-val.blue{color:var(--blue);}.r-val.amber{color:var(--amber);}.r-val.purple{color:var(--purple);}
 
-/* CHART */
 .chart-wrap{position:relative;width:100%;}
-
-/* STEPS BIG */
 .steps-big{font-size:34px;font-weight:600;letter-spacing:-1px;color:var(--text);line-height:1;}
 
-/* TOAST */
 .toast{position:fixed;bottom:20px;right:20px;z-index:9999;background:var(--text);color:var(--card);padding:10px 16px;border-radius:9px;font-size:12px;font-weight:500;box-shadow:0 4px 20px rgba(0,0,0,0.2);transform:translateY(70px);opacity:0;transition:all .22s cubic-bezier(.4,0,.2,1);pointer-events:none;}
 .toast.show{transform:translateY(0);opacity:1;}
 
-/* MEAL SUMMARY ROW in Today */
 .meal-summary{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:12px;}
 .ms-card{background:var(--card);border-radius:12px;border:1px solid var(--border);padding:10px 12px;box-shadow:var(--sh);}
 .ms-icon{font-size:16px;margin-bottom:4px;}
@@ -183,8 +180,23 @@ input:focus,select:focus{border-color:var(--green);box-shadow:0 0 0 3px rgba(26,
 .ms-cal{font-size:18px;font-weight:600;color:var(--text);letter-spacing:-0.3px;line-height:1.1;}
 .ms-sub{font-size:10px;color:var(--text3);margin-top:2px;}
 
-/* EMPTY STATE */
 .empty{color:var(--text3);font-size:12px;font-style:italic;padding:4px 0;}
+
+/* Filter pills */
+.filter-pills{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:8px;}
+.pill{padding:4px 11px;border-radius:20px;border:1px solid var(--border2);font-size:11px;font-weight:500;cursor:pointer;background:var(--card);color:var(--text2);transition:all .15s;white-space:nowrap;}
+.pill:hover{background:var(--bg2);}
+.pill.active{background:var(--green);color:#fff;border-color:var(--green);}
+
+/* Section dividers in suggestions */
+.sug-section-header{padding:6px 13px 4px;font-size:9px;font-weight:700;color:var(--text3);text-transform:uppercase;letter-spacing:0.8px;background:var(--bg2);position:sticky;top:0;}
+
+/* Workout builder */
+.w-builder{border:1px solid var(--border2);border-radius:10px;overflow:hidden;margin-top:10px;}
+.w-builder-header{background:var(--bg2);padding:9px 12px;font-size:11px;font-weight:600;color:var(--text2);display:flex;align-items:center;justify-content:space-between;}
+.w-exercise-row{display:flex;gap:7px;align-items:flex-end;padding:9px 12px;border-top:1px solid var(--border);flex-wrap:wrap;}
+.w-exercise-row input,.w-exercise-row select{flex:1;min-width:80px;}
+.met-display{background:var(--amber-bg);color:var(--amber-t);border-radius:7px;padding:4px 10px;font-size:11px;font-weight:600;white-space:nowrap;flex-shrink:0;}
 
 @media(max-width:640px){
   .topbar{padding:0 12px;gap:8px;}
@@ -196,6 +208,7 @@ input:focus,select:focus{border-color:var(--green);box-shadow:0 0 0 3px rgba(26,
   .topbar-date{display:none;}
   .fields-row{flex-direction:column;}
   .field-group input{width:100%;}
+  .w-exercise-row{flex-direction:column;}
 }
 @media(max-width:380px){
   .metrics{grid-template-columns:1fr 1fr;}
@@ -216,14 +229,12 @@ input:focus,select:focus{border-color:var(--green);box-shadow:0 0 0 3px rgba(26,
   </nav>
 </div>
 
-<!-- ═══ TODAY ═══ -->
+<!-- TODAY -->
 <div class="page active" id="page-today">
   <div class="page-header">
     <div class="page-title">Daily Summary</div>
     <div class="page-sub" id="today-label"></div>
   </div>
-
-  <!-- Top metrics -->
   <div class="metrics">
     <div class="metric green"><div class="metric-label">Total Calories</div><div class="metric-value" id="m-cal">0</div><div class="metric-sub">of <span id="m-cal-goal">2000</span> goal</div></div>
     <div class="metric coral"><div class="metric-label">Calories Burned</div><div class="metric-value" id="m-burned">0</div><div class="metric-sub">workouts</div></div>
@@ -231,30 +242,23 @@ input:focus,select:focus{border-color:var(--green);box-shadow:0 0 0 3px rgba(26,
     <div class="metric blue"><div class="metric-label">Steps</div><div class="metric-value" id="m-steps">0</div><div class="metric-sub">of <span id="m-step-goal">10000</span></div></div>
     <div class="metric purple"><div class="metric-label">Weight</div><div class="metric-value" id="m-weight">—</div><div class="metric-sub">kg</div></div>
   </div>
-
-  <!-- Meal breakdown row -->
   <div class="meal-summary">
     <div class="ms-card"><div class="ms-icon">🌅</div><div class="ms-name">Breakfast</div><div class="ms-cal" id="ms-b">0</div><div class="ms-sub">kcal</div></div>
     <div class="ms-card"><div class="ms-icon">☀️</div><div class="ms-name">Lunch</div><div class="ms-cal" id="ms-l">0</div><div class="ms-sub">kcal</div></div>
     <div class="ms-card"><div class="ms-icon">🌙</div><div class="ms-name">Dinner</div><div class="ms-cal" id="ms-d">0</div><div class="ms-sub">kcal</div></div>
     <div class="ms-card"><div class="ms-icon">🍎</div><div class="ms-name">Snacks</div><div class="ms-cal" id="ms-s">0</div><div class="ms-sub">kcal</div></div>
   </div>
-
-  <!-- Macros -->
   <div class="card">
     <div class="card-title">Macro breakdown</div>
     <div class="macro-row"><div class="macro-label">Protein</div><div class="macro-track"><div class="macro-fill" id="bar-p" style="background:var(--blue);width:0%"></div></div><div class="macro-num" id="lbl-p">0 / 150g</div></div>
     <div class="macro-row"><div class="macro-label">Carbs</div><div class="macro-track"><div class="macro-fill" id="bar-c" style="background:var(--amber);width:0%"></div></div><div class="macro-num" id="lbl-c">0 / 200g</div></div>
     <div class="macro-row"><div class="macro-label">Fat</div><div class="macro-track"><div class="macro-fill" id="bar-f" style="background:var(--coral);width:0%"></div></div><div class="macro-num" id="lbl-f">0 / 65g</div></div>
   </div>
-
   <div class="two-col">
-    <!-- Today food by meal -->
     <div class="card">
       <div class="card-title">Food today — by meal</div>
       <div id="today-food-by-meal"></div>
     </div>
-    <!-- Workouts + steps -->
     <div class="card">
       <div class="card-title">Workouts & activity</div>
       <div id="today-workouts"><div class="empty">No workouts logged.</div></div>
@@ -267,38 +271,19 @@ input:focus,select:focus{border-color:var(--green);box-shadow:0 0 0 3px rgba(26,
   </div>
 </div>
 
-<!-- ═══ LOG ═══ -->
+<!-- LOG -->
 <div class="page" id="page-log">
   <div class="page-header">
     <div class="page-title">Log Entry</div>
     <input type="date" id="log-date" style="width:auto;" onchange="refreshLogPage()" />
   </div>
-
-  <!-- Meals grid -->
-  <div class="meals-grid" id="meals-grid">
-    <!-- generated by JS -->
-  </div>
-
+  <div class="meals-grid" id="meals-grid"></div>
   <div class="two-col" style="margin-top:0;">
-    <!-- Workout -->
     <div class="card">
       <div class="card-title">Log Workout</div>
-      <div style="display:flex;flex-direction:column;gap:8px;">
-        <select id="w-type">
-          <option>Gym</option><option>Running</option><option>Walking</option>
-          <option>Cycling</option><option>Swimming</option><option>HIIT</option>
-          <option>Yoga</option><option>Pilates</option><option>Sports</option><option>Other</option>
-        </select>
-        <div class="input-row">
-          <input type="number" id="w-dur" placeholder="Duration (mins)" min="1"/>
-          <input type="number" id="w-cals" placeholder="Cals burned" min="0"/>
-        </div>
-        <button class="btn" onclick="addWorkout()">Log Workout</button>
-      </div>
-      <div id="log-workout-list" style="margin-top:10px;"></div>
+      <button class="btn" onclick="openWorkoutModal()" style="width:100%;margin-bottom:10px;">🏋️ Add Workout / Session</button>
+      <div id="log-workout-list"></div>
     </div>
-
-    <!-- Steps & Weight -->
     <div class="card">
       <div class="card-title">Steps & Weight</div>
       <div style="display:flex;flex-direction:column;gap:12px;">
@@ -319,8 +304,6 @@ input:focus,select:focus{border-color:var(--green);box-shadow:0 0 0 3px rgba(26,
       </div>
     </div>
   </div>
-
-  <!-- Goals -->
   <div class="card">
     <div class="card-title">Daily Goals</div>
     <div class="goals-grid">
@@ -329,11 +312,12 @@ input:focus,select:focus{border-color:var(--green);box-shadow:0 0 0 3px rgba(26,
       <div class="goal-group"><label>Carbs (g)</label><input type="number" id="g-c" value="200" onchange="saveGoals()"/></div>
       <div class="goal-group"><label>Fat (g)</label><input type="number" id="g-f" value="65" onchange="saveGoals()"/></div>
       <div class="goal-group"><label>Step Goal</label><input type="number" id="g-steps" value="10000" onchange="saveGoals()"/></div>
+      <div class="goal-group"><label>Body Weight (kg) — for calcs</label><input type="number" id="g-bw" value="70" step="0.1" onchange="saveGoals()"/></div>
     </div>
   </div>
 </div>
 
-<!-- ═══ TRENDS ═══ -->
+<!-- TRENDS -->
 <div class="page" id="page-trends">
   <div class="page-header"><div class="page-title">Progress Trends</div><div class="page-sub">Last 30 days</div></div>
   <div class="card">
@@ -367,7 +351,7 @@ input:focus,select:focus{border-color:var(--green);box-shadow:0 0 0 3px rgba(26,
   </div>
 </div>
 
-<!-- ═══ REPORTS ═══ -->
+<!-- REPORTS -->
 <div class="page" id="page-reports">
   <div class="page-header"><div class="page-title">Reports</div></div>
   <div style="display:flex;gap:7px;margin-bottom:16px;">
@@ -377,23 +361,30 @@ input:focus,select:focus{border-color:var(--green);box-shadow:0 0 0 3px rgba(26,
   <div id="report-body"></div>
 </div>
 
-<!-- ═══ FOOD MODAL ═══ -->
+<!-- FOOD MODAL -->
 <div class="modal-overlay hidden" id="food-modal">
   <div class="modal">
     <div class="modal-title">
       <span id="modal-meal-icon" style="font-size:18px;"></span>
       Add food to <span id="modal-meal-badge" class="modal-meal-badge"></span>
     </div>
-    <input type="text" id="food-search" placeholder="Search food… e.g. eggs, rice, chicken" oninput="searchFood()" autocomplete="off" style="margin-bottom:6px;"/>
+    <div class="filter-pills" id="food-filter-pills">
+      <span class="pill active" onclick="setFoodFilter('all',this)">All</span>
+      <span class="pill" onclick="setFoodFilter('fresh',this)">🥦 Fresh</span>
+      <span class="pill" onclick="setFoodFilter('dairy',this)">🥛 Dairy</span>
+      <span class="pill" onclick="setFoodFilter('packed',this)">📦 Packed</span>
+      <span class="pill" onclick="setFoodFilter('drinks',this)">🥤 Drinks</span>
+      <span class="pill" onclick="setFoodFilter('snacks',this)">🍟 Snacks</span>
+      <span class="pill" onclick="setFoodFilter('restaurant',this)">🍽️ Restaurant</span>
+      <span class="pill" onclick="setFoodFilter('supplements',this)">💊 Supps</span>
+    </div>
+    <input type="text" id="food-search" placeholder="Search food… e.g. amul milk, maggi, lays" oninput="searchFood()" autocomplete="off" style="margin-bottom:6px;"/>
     <div class="suggestions" id="suggestions"></div>
     <div class="add-panel" id="add-panel">
       <div class="add-panel-name" id="add-panel-name"></div>
-      <div class="fields-row">
-        <div class="field-group"><label>Qty</label><input type="number" id="ea-qty" value="1" min="0.1" step="0.1" style="width:58px;"/></div>
-        <div class="field-group"><label>Calories</label><input type="number" id="ea-cal" placeholder="kcal"/></div>
-        <div class="field-group"><label>Protein (g)</label><input type="number" id="ea-p" placeholder="g"/></div>
-        <div class="field-group"><label>Carbs (g)</label><input type="number" id="ea-c" placeholder="g"/></div>
-        <div class="field-group"><label>Fat (g)</label><input type="number" id="ea-f" placeholder="g"/></div>
+      <div class="add-panel-hint" id="add-panel-hint"></div>
+      <div class="fields-row" id="add-panel-fields">
+        <!-- dynamic -->
       </div>
     </div>
     <div style="display:flex;gap:7px;margin-top:14px;">
@@ -403,63 +394,410 @@ input:focus,select:focus{border-color:var(--green);box-shadow:0 0 0 3px rgba(26,
   </div>
 </div>
 
+<!-- WORKOUT MODAL -->
+<div class="modal-overlay hidden" id="workout-modal">
+  <div class="modal" style="max-width:560px;">
+    <div class="modal-title">🏋️ Log Workout</div>
+
+    <div style="display:flex;flex-direction:column;gap:10px;">
+      <!-- Session type -->
+      <div>
+        <div style="font-size:11px;font-weight:500;color:var(--text2);margin-bottom:5px;">Session type</div>
+        <select id="wm-type" onchange="updateWorkoutCalPreview()">
+          <optgroup label="Gym">
+            <option value="Gym — Weight Training">Gym — Weight Training</option>
+            <option value="Gym — Hypertrophy (Moderate)">Gym — Hypertrophy (Moderate)</option>
+            <option value="Gym — Powerlifting (Heavy)">Gym — Powerlifting (Heavy)</option>
+            <option value="Gym — Circuit Training">Gym — Circuit Training</option>
+          </optgroup>
+          <optgroup label="Cardio">
+            <option value="Running">Running</option>
+            <option value="Treadmill">Treadmill</option>
+            <option value="Cycling (outdoor)">Cycling (outdoor)</option>
+            <option value="Cycling (stationary)">Cycling (stationary)</option>
+            <option value="Swimming">Swimming</option>
+            <option value="Rowing">Rowing</option>
+            <option value="Jump Rope">Jump Rope</option>
+            <option value="Stair Climber">Stair Climber</option>
+            <option value="Elliptical">Elliptical</option>
+          </optgroup>
+          <optgroup label="HIIT / Classes">
+            <option value="HIIT">HIIT</option>
+            <option value="CrossFit">CrossFit</option>
+            <option value="Zumba">Zumba</option>
+            <option value="Aerobics">Aerobics</option>
+          </optgroup>
+          <optgroup label="Mind-Body">
+            <option value="Yoga">Yoga</option>
+            <option value="Pilates">Pilates</option>
+            <option value="Stretching">Stretching</option>
+          </optgroup>
+          <optgroup label="Sports">
+            <option value="Cricket">Cricket</option>
+            <option value="Football / Soccer">Football / Soccer</option>
+            <option value="Basketball">Basketball</option>
+            <option value="Badminton">Badminton</option>
+            <option value="Tennis">Tennis</option>
+            <option value="Table Tennis">Table Tennis</option>
+            <option value="Volleyball">Volleyball</option>
+            <option value="Kabaddi">Kabaddi</option>
+          </optgroup>
+          <optgroup label="Walking">
+            <option value="Walking (casual)">Walking (casual)</option>
+            <option value="Brisk Walking">Brisk Walking</option>
+            <option value="Hiking">Hiking</option>
+          </optgroup>
+          <optgroup label="Other">
+            <option value="Dancing">Dancing</option>
+            <option value="Martial Arts / MMA">Martial Arts / MMA</option>
+            <option value="Boxing">Boxing</option>
+            <option value="Rock Climbing">Rock Climbing</option>
+            <option value="Other">Other</option>
+          </optgroup>
+        </select>
+      </div>
+
+      <!-- Duration -->
+      <div style="display:flex;gap:9px;align-items:flex-end;">
+        <div style="flex:1;">
+          <div style="font-size:11px;font-weight:500;color:var(--text2);margin-bottom:5px;">Duration (minutes)</div>
+          <input type="number" id="wm-dur" placeholder="e.g. 60" min="1" oninput="updateWorkoutCalPreview()"/>
+        </div>
+        <div style="flex:1;">
+          <div style="font-size:11px;font-weight:500;color:var(--text2);margin-bottom:5px;">Intensity</div>
+          <select id="wm-intensity" onchange="updateWorkoutCalPreview()">
+            <option value="0.8">Light</option>
+            <option value="1.0" selected>Moderate</option>
+            <option value="1.2">Hard</option>
+            <option value="1.4">Very Hard / Max</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Exercises section -->
+      <div>
+        <div style="font-size:11px;font-weight:500;color:var(--text2);margin-bottom:6px;">Exercises (optional — for detailed tracking)</div>
+        <div style="display:flex;gap:7px;flex-wrap:wrap;margin-bottom:7px;">
+          <input type="text" id="wm-ex-name" placeholder="Exercise name e.g. Bench Press" style="flex:2;min-width:140px;"/>
+          <input type="number" id="wm-ex-sets" placeholder="Sets" style="width:65px;" min="1"/>
+          <input type="number" id="wm-ex-reps" placeholder="Reps" style="width:65px;" min="1"/>
+          <input type="number" id="wm-ex-kg" placeholder="kg" style="width:65px;" min="0" step="0.5"/>
+          <button class="btn sec" onclick="addExerciseRow()" style="padding:7px 12px;">+ Add</button>
+        </div>
+        <div id="exercise-list" class="exercise-list"></div>
+      </div>
+
+      <!-- Notes -->
+      <div>
+        <div style="font-size:11px;font-weight:500;color:var(--text2);margin-bottom:5px;">Session notes (optional)</div>
+        <input type="text" id="wm-notes" placeholder="e.g. PR on deadlift, felt strong"/>
+      </div>
+
+      <!-- Override calories -->
+      <div>
+        <div style="font-size:11px;font-weight:500;color:var(--text2);margin-bottom:5px;">Override calories burned (leave blank to auto-calculate)</div>
+        <input type="number" id="wm-override" placeholder="kcal" min="0" oninput="updateWorkoutCalPreview()"/>
+      </div>
+
+      <!-- Preview -->
+      <div id="wm-cal-preview" class="calorie-preview"></div>
+    </div>
+
+    <div style="display:flex;gap:7px;margin-top:16px;">
+      <button class="btn" onclick="confirmWorkout()">Log Workout</button>
+      <button class="btn sec" onclick="closeWorkoutModal()">Cancel</button>
+    </div>
+  </div>
+</div>
+
 <div class="toast" id="toast"></div>
 
 <script>
-// ─── FOOD DB ─────────────────────────────────────────────────────────────────
-const FOODS=[
-  {name:'Egg (whole)',cal:78,p:6,c:0.6,f:5,unit:'egg'},
-  {name:'Egg whites (100g)',cal:52,p:11,c:0.7,f:0.2,unit:'100g'},
-  {name:'Rice cooked (1 cup)',cal:206,p:4.3,c:45,f:0.4,unit:'cup'},
-  {name:'Brown rice cooked (1 cup)',cal:216,p:5,c:45,f:1.8,unit:'cup'},
-  {name:'Chicken breast (100g)',cal:165,p:31,c:0,f:3.6,unit:'100g'},
-  {name:'Chicken thigh (100g)',cal:209,p:26,c:0,f:11,unit:'100g'},
-  {name:'Paneer (100g)',cal:265,p:18,c:3.4,f:20,unit:'100g'},
-  {name:'Dal cooked (1 cup)',cal:230,p:18,c:40,f:0.9,unit:'cup'},
-  {name:'Roti (1 medium)',cal:120,p:3.5,c:22,f:2.5,unit:'roti'},
-  {name:'Chapati (1)',cal:104,p:3.1,c:20,f:1.9,unit:'chapati'},
-  {name:'Paratha (1)',cal:200,p:4,c:28,f:8,unit:'paratha'},
-  {name:'Idli (1)',cal:58,p:2,c:12,f:0.4,unit:'idli'},
-  {name:'Dosa (1 plain)',cal:168,p:4,c:30,f:3.7,unit:'dosa'},
-  {name:'Poha (1 cup cooked)',cal:270,p:4,c:54,f:5,unit:'cup'},
-  {name:'Upma (1 cup)',cal:200,p:5,c:35,f:5,unit:'cup'},
-  {name:'Oats (1/2 cup dry)',cal:150,p:5,c:27,f:3,unit:'serving'},
-  {name:'Banana',cal:105,p:1.3,c:27,f:0.4,unit:'banana'},
-  {name:'Apple',cal:95,p:0.5,c:25,f:0.3,unit:'apple'},
-  {name:'Orange',cal:62,p:1.2,c:15,f:0.2,unit:'orange'},
-  {name:'Mango (1 cup)',cal:107,p:1.4,c:28,f:0.4,unit:'cup'},
-  {name:'Papaya (1 cup)',cal:55,p:0.9,c:14,f:0.2,unit:'cup'},
-  {name:'Milk whole (1 cup)',cal:149,p:8,c:12,f:8,unit:'cup'},
-  {name:'Milk toned (1 cup)',cal:120,p:8,c:12,f:4.5,unit:'cup'},
-  {name:'Curd / Yogurt (100g)',cal:60,p:3.5,c:4,f:3.3,unit:'100g'},
-  {name:'Greek yogurt (100g)',cal:59,p:10,c:3.6,f:0.4,unit:'100g'},
-  {name:'Almonds (30g)',cal:173,p:6.3,c:6,f:15,unit:'30g'},
-  {name:'Peanuts (30g)',cal:166,p:7.4,c:5,f:14,unit:'30g'},
-  {name:'Peanut butter (2 tbsp)',cal:190,p:8,c:6,f:16,unit:'2tbsp'},
-  {name:'Salmon (100g)',cal:208,p:20,c:0,f:13,unit:'100g'},
-  {name:'Tuna canned (100g)',cal:116,p:25,c:0,f:1,unit:'100g'},
-  {name:'Bread whole wheat (1 slice)',cal:79,p:4,c:15,f:1,unit:'slice'},
-  {name:'Pasta cooked (1 cup)',cal:220,p:8,c:43,f:1.3,unit:'cup'},
-  {name:'Potato boiled (1 medium)',cal:130,p:3,c:30,f:0.1,unit:'potato'},
-  {name:'Sweet potato (1 medium)',cal:103,p:2.3,c:24,f:0.1,unit:'potato'},
-  {name:'Broccoli (1 cup)',cal:55,p:3.7,c:11,f:0.6,unit:'cup'},
-  {name:'Spinach (1 cup raw)',cal:7,p:0.9,c:1.1,f:0.1,unit:'cup'},
-  {name:'Lentils cooked (1 cup)',cal:230,p:18,c:40,f:0.8,unit:'cup'},
-  {name:'Rajma cooked (1 cup)',cal:225,p:15,c:40,f:0.9,unit:'cup'},
-  {name:'Chana cooked (1 cup)',cal:269,p:15,c:45,f:4,unit:'cup'},
-  {name:'Tofu firm (100g)',cal:76,p:8,c:1.9,f:4.3,unit:'100g'},
-  {name:'Protein shake (1 scoop)',cal:120,p:25,c:5,f:2,unit:'scoop'},
-  {name:'Cheese cheddar (30g)',cal:120,p:7,c:0.4,f:10,unit:'30g'},
-  {name:'Ghee (1 tsp)',cal:42,p:0,c:0,f:4.7,unit:'tsp'},
-  {name:'Sambar (1 cup)',cal:90,p:4,c:16,f:1.5,unit:'cup'},
-  {name:'Biryani chicken (1 plate)',cal:450,p:30,c:55,f:12,unit:'plate'},
-  {name:'Chole (1 cup)',cal:240,p:12,c:38,f:6,unit:'cup'},
-  {name:'Palak paneer (1 cup)',cal:280,p:14,c:12,f:20,unit:'cup'},
-  {name:'Butter chicken (100g)',cal:150,p:12,c:7,f:9,unit:'100g'},
-  {name:'Coffee black',cal:2,p:0.3,c:0,f:0,unit:'cup'},
-  {name:'Tea with milk (1 cup)',cal:40,p:1.5,c:5,f:1.5,unit:'cup'},
-  {name:'Biscuits (2 pieces)',cal:100,p:1.5,c:15,f:4,unit:'2 pcs'},
-  {name:'Watermelon (1 cup)',cal:46,p:0.9,c:12,f:0.2,unit:'cup'},
+// ═══════════════════════════════════════════════════════════════════
+// MET VALUES FOR CALORIE AUTO-CALCULATION
+// calories = MET × weight_kg × duration_hours × intensity_multiplier
+// ═══════════════════════════════════════════════════════════════════
+const MET_VALUES = {
+  'Gym — Weight Training': 3.5,
+  'Gym — Hypertrophy (Moderate)': 4.5,
+  'Gym — Powerlifting (Heavy)': 6.0,
+  'Gym — Circuit Training': 8.0,
+  'Running': 9.8,
+  'Treadmill': 8.0,
+  'Cycling (outdoor)': 7.5,
+  'Cycling (stationary)': 7.0,
+  'Swimming': 8.0,
+  'Rowing': 7.0,
+  'Jump Rope': 11.0,
+  'Stair Climber': 9.0,
+  'Elliptical': 6.0,
+  'HIIT': 10.0,
+  'CrossFit': 9.5,
+  'Zumba': 6.5,
+  'Aerobics': 6.0,
+  'Yoga': 3.0,
+  'Pilates': 3.5,
+  'Stretching': 2.5,
+  'Cricket': 5.0,
+  'Football / Soccer': 7.0,
+  'Basketball': 6.5,
+  'Badminton': 5.5,
+  'Tennis': 7.0,
+  'Table Tennis': 4.0,
+  'Volleyball': 4.0,
+  'Kabaddi': 6.5,
+  'Walking (casual)': 3.0,
+  'Brisk Walking': 4.5,
+  'Hiking': 6.0,
+  'Dancing': 5.0,
+  'Martial Arts / MMA': 10.0,
+  'Boxing': 9.0,
+  'Rock Climbing': 8.0,
+  'Other': 5.0,
+};
+
+// ═══════════════════════════════════════════════════════════════════
+// EXPANDED FOOD DATABASE
+// category: fresh | dairy | packed | drinks | snacks | restaurant | supplements
+// For packed foods: per100g:true means macros are per 100g
+// unit = display unit, serving = default serving size description
+// ═══════════════════════════════════════════════════════════════════
+const FOODS = [
+  // ── FRESH PRODUCE & EGGS ──────────────────────────────────────
+  {name:'Egg (whole)',cal:78,p:6,c:0.6,f:5,unit:'egg',cat:'fresh'},
+  {name:'Egg whites (100g)',cal:52,p:11,c:0.7,f:0.2,unit:'100g',cat:'fresh'},
+  {name:'Banana',cal:105,p:1.3,c:27,f:0.4,unit:'banana',cat:'fresh'},
+  {name:'Apple',cal:95,p:0.5,c:25,f:0.3,unit:'apple',cat:'fresh'},
+  {name:'Orange',cal:62,p:1.2,c:15,f:0.2,unit:'orange',cat:'fresh'},
+  {name:'Mango (1 cup)',cal:107,p:1.4,c:28,f:0.4,unit:'cup',cat:'fresh'},
+  {name:'Papaya (1 cup)',cal:55,p:0.9,c:14,f:0.2,unit:'cup',cat:'fresh'},
+  {name:'Watermelon (1 cup)',cal:46,p:0.9,c:12,f:0.2,unit:'cup',cat:'fresh'},
+  {name:'Grapes (1 cup)',cal:104,p:1.1,c:27,f:0.2,unit:'cup',cat:'fresh'},
+  {name:'Pomegranate (1 cup)',cal:144,p:3,c:32,f:2,unit:'cup',cat:'fresh'},
+  {name:'Guava',cal:68,p:2.5,c:14,f:1,unit:'guava',cat:'fresh'},
+  {name:'Pear',cal:101,p:0.7,c:27,f:0.2,unit:'pear',cat:'fresh'},
+  {name:'Chicken breast (100g)',cal:165,p:31,c:0,f:3.6,unit:'100g',cat:'fresh'},
+  {name:'Chicken thigh (100g)',cal:209,p:26,c:0,f:11,unit:'100g',cat:'fresh'},
+  {name:'Chicken whole (100g)',cal:215,p:18,c:0,f:15,unit:'100g',cat:'fresh'},
+  {name:'Mutton/Lamb (100g)',cal:250,p:26,c:0,f:16,unit:'100g',cat:'fresh'},
+  {name:'Fish (Rohu, 100g)',cal:97,p:17,c:0,f:2.5,unit:'100g',cat:'fresh'},
+  {name:'Fish (Pomfret, 100g)',cal:93,p:18,c:0,f:2,unit:'100g',cat:'fresh'},
+  {name:'Salmon (100g)',cal:208,p:20,c:0,f:13,unit:'100g',cat:'fresh'},
+  {name:'Tuna fresh (100g)',cal:144,p:30,c:0,f:2.5,unit:'100g',cat:'fresh'},
+  {name:'Shrimp / Prawns (100g)',cal:85,p:20,c:0,f:0.9,unit:'100g',cat:'fresh'},
+  {name:'Broccoli (1 cup)',cal:55,p:3.7,c:11,f:0.6,unit:'cup',cat:'fresh'},
+  {name:'Spinach (1 cup raw)',cal:7,p:0.9,c:1.1,f:0.1,unit:'cup',cat:'fresh'},
+  {name:'Tomato (1 medium)',cal:22,p:1.1,c:4.8,f:0.2,unit:'tomato',cat:'fresh'},
+  {name:'Onion (1 medium)',cal:44,p:1.2,c:10,f:0.1,unit:'onion',cat:'fresh'},
+  {name:'Carrot (1 medium)',cal:25,p:0.6,c:6,f:0.1,unit:'carrot',cat:'fresh'},
+  {name:'Cucumber (1 cup)',cal:16,p:0.7,c:3.8,f:0.1,unit:'cup',cat:'fresh'},
+  {name:'Capsicum (1 medium)',cal:31,p:1,c:7,f:0.3,unit:'capsicum',cat:'fresh'},
+  {name:'Potato boiled (1 medium)',cal:130,p:3,c:30,f:0.1,unit:'potato',cat:'fresh'},
+  {name:'Sweet potato (1 medium)',cal:103,p:2.3,c:24,f:0.1,unit:'potato',cat:'fresh'},
+
+  // ── GRAINS & STAPLES ─────────────────────────────────────────
+  {name:'Rice cooked (1 cup)',cal:206,p:4.3,c:45,f:0.4,unit:'cup',cat:'fresh'},
+  {name:'Brown rice cooked (1 cup)',cal:216,p:5,c:45,f:1.8,unit:'cup',cat:'fresh'},
+  {name:'Roti (1 medium)',cal:120,p:3.5,c:22,f:2.5,unit:'roti',cat:'fresh'},
+  {name:'Chapati (1)',cal:104,p:3.1,c:20,f:1.9,unit:'chapati',cat:'fresh'},
+  {name:'Paratha (1 plain)',cal:200,p:4,c:28,f:8,unit:'paratha',cat:'fresh'},
+  {name:'Aloo Paratha (1)',cal:260,p:5,c:38,f:10,unit:'paratha',cat:'fresh'},
+  {name:'Idli (1)',cal:58,p:2,c:12,f:0.4,unit:'idli',cat:'fresh'},
+  {name:'Dosa plain (1)',cal:168,p:4,c:30,f:3.7,unit:'dosa',cat:'fresh'},
+  {name:'Masala Dosa (1)',cal:320,p:7,c:50,f:9,unit:'dosa',cat:'fresh'},
+  {name:'Uttapam (1)',cal:180,p:5,c:32,f:4,unit:'uttapam',cat:'fresh'},
+  {name:'Poha (1 cup cooked)',cal:270,p:4,c:54,f:5,unit:'cup',cat:'fresh'},
+  {name:'Upma (1 cup)',cal:200,p:5,c:35,f:5,unit:'cup',cat:'fresh'},
+  {name:'Oats (1/2 cup dry)',cal:150,p:5,c:27,f:3,unit:'serving',cat:'fresh'},
+  {name:'Dal cooked (1 cup)',cal:230,p:18,c:40,f:0.9,unit:'cup',cat:'fresh'},
+  {name:'Rajma cooked (1 cup)',cal:225,p:15,c:40,f:0.9,unit:'cup',cat:'fresh'},
+  {name:'Chana cooked (1 cup)',cal:269,p:15,c:45,f:4,unit:'cup',cat:'fresh'},
+  {name:'Lentils cooked (1 cup)',cal:230,p:18,c:40,f:0.8,unit:'cup',cat:'fresh'},
+  {name:'Paneer (100g)',cal:265,p:18,c:3.4,f:20,unit:'100g',cat:'fresh'},
+  {name:'Tofu firm (100g)',cal:76,p:8,c:1.9,f:4.3,unit:'100g',cat:'fresh'},
+  {name:'Bread whole wheat (1 slice)',cal:79,p:4,c:15,f:1,unit:'slice',cat:'fresh'},
+  {name:'Bread white (1 slice)',cal:79,p:2.7,c:15,f:1,unit:'slice',cat:'fresh'},
+  {name:'Pasta cooked (1 cup)',cal:220,p:8,c:43,f:1.3,unit:'cup',cat:'fresh'},
+  {name:'Peanuts (30g)',cal:166,p:7.4,c:5,f:14,unit:'30g',cat:'fresh'},
+  {name:'Almonds (30g)',cal:173,p:6.3,c:6,f:15,unit:'30g',cat:'fresh'},
+  {name:'Cashews (30g)',cal:157,p:5.2,c:9,f:12.4,unit:'30g',cat:'fresh'},
+  {name:'Walnuts (30g)',cal:196,p:4.6,c:4,f:19.6,unit:'30g',cat:'fresh'},
+  {name:'Ghee (1 tsp)',cal:42,p:0,c:0,f:4.7,unit:'tsp',cat:'fresh'},
+  {name:'Coconut oil (1 tsp)',cal:39,p:0,c:0,f:4.5,unit:'tsp',cat:'fresh'},
+  {name:'Olive oil (1 tbsp)',cal:119,p:0,c:0,f:13.5,unit:'tbsp',cat:'fresh'},
+  {name:'Peanut butter (2 tbsp)',cal:190,p:8,c:6,f:16,unit:'2tbsp',cat:'fresh'},
+  {name:'Honey (1 tbsp)',cal:64,p:0.1,c:17,f:0,unit:'tbsp',cat:'fresh'},
+  {name:'Sugar (1 tsp)',cal:16,p:0,c:4.2,f:0,unit:'tsp',cat:'fresh'},
+
+  // ── DAIRY — Amul & others ─────────────────────────────────────
+  {name:'Amul Toned Milk Tetra Pack',cal:58,p:3.1,c:4.8,f:3,unit:'100ml',per100:true,cat:'dairy',brand:'Amul',hint:'Enter ml consumed'},
+  {name:'Amul Full Cream Milk',cal:67,p:3.2,c:4.8,f:4,unit:'100ml',per100:true,cat:'dairy',brand:'Amul',hint:'Enter ml consumed'},
+  {name:'Amul Slim & Trim Milk (Skimmed)',cal:35,p:3.5,c:5,f:0.2,unit:'100ml',per100:true,cat:'dairy',brand:'Amul',hint:'Enter ml consumed'},
+  {name:'Amul Gold Milk (Standardised)',cal:62,p:3.2,c:4.8,f:3.5,unit:'100ml',per100:true,cat:'dairy',brand:'Amul',hint:'Enter ml consumed'},
+  {name:'Amul Dahi (Curd)',cal:60,p:3.5,c:4,f:3.3,unit:'100g',per100:true,cat:'dairy',brand:'Amul',hint:'Enter grams consumed'},
+  {name:'Amul Greek Yogurt',cal:66,p:5.5,c:5.7,f:2.7,unit:'100g',per100:true,cat:'dairy',brand:'Amul',hint:'Enter grams consumed'},
+  {name:'Amul Butter',cal:720,p:0.5,c:0.5,f:80,unit:'100g',per100:true,cat:'dairy',brand:'Amul',hint:'Enter grams — 1 tsp ≈ 5g'},
+  {name:'Amul Cheese Slice (1 slice)',cal:80,p:4.5,c:1.5,f:6.5,unit:'slice',cat:'dairy',brand:'Amul'},
+  {name:'Amul Cheese Block (100g)',cal:310,p:20,c:1.5,f:25,unit:'100g',per100:true,cat:'dairy',brand:'Amul',hint:'Enter grams consumed'},
+  {name:'Amul Mozzarella (100g)',cal:280,p:18,c:3,f:22,unit:'100g',per100:true,cat:'dairy',brand:'Amul',hint:'Enter grams consumed'},
+  {name:'Amul Paneer (100g)',cal:265,p:18,c:3.4,f:20,unit:'100g',per100:true,cat:'dairy',brand:'Amul',hint:'Enter grams consumed'},
+  {name:'Amul Lassi (200ml tetra)',cal:118,p:4,c:22,f:2,unit:'200ml pack',cat:'dairy',brand:'Amul'},
+  {name:'Amul Kool Café (200ml)',cal:116,p:3.5,c:20,f:2.5,unit:'200ml',cat:'dairy',brand:'Amul'},
+  {name:'Amul Kool Milk Shake Chocolate (200ml)',cal:140,p:4,c:24,f:3,unit:'200ml',cat:'dairy',brand:'Amul'},
+  {name:'Amul Kool Milk Shake Strawberry (200ml)',cal:132,p:3.5,c:23,f:3,unit:'200ml',cat:'dairy',brand:'Amul'},
+  {name:'Amul Ice Cream Vanilla (100g)',cal:205,p:3,c:26,f:10,unit:'100g',per100:true,cat:'dairy',brand:'Amul',hint:'Enter grams consumed'},
+  {name:'Amul Ghee',cal:900,p:0,c:0,f:100,unit:'100g',per100:true,cat:'dairy',brand:'Amul',hint:'1 tsp ≈ 5g = 45 kcal'},
+  {name:'Amul Cream (100g)',cal:260,p:1.8,c:3.5,f:26,unit:'100g',per100:true,cat:'dairy',brand:'Amul',hint:'Enter grams consumed'},
+  {name:'Nandini Milk Toned (100ml)',cal:58,p:3,c:4.5,f:3,unit:'100ml',per100:true,cat:'dairy',brand:'Nandini',hint:'Enter ml consumed'},
+  {name:'Nestle a+ Milk (100ml)',cal:62,p:3.2,c:4.8,f:3.5,unit:'100ml',per100:true,cat:'dairy',brand:'Nestle',hint:'Enter ml consumed'},
+  {name:'Mother Dairy Toned Milk (100ml)',cal:58,p:3.2,c:4.8,f:3,unit:'100ml',per100:true,cat:'dairy',brand:'Mother Dairy',hint:'Enter ml consumed'},
+  {name:'Epigamia Greek Yogurt Plain (100g)',cal:61,p:5.5,c:5,f:1.8,unit:'100g',per100:true,cat:'dairy',brand:'Epigamia',hint:'Enter grams consumed'},
+  {name:'Epigamia Greek Yogurt with Honey (100g)',cal:98,p:5,c:13,f:2.2,unit:'100g',per100:true,cat:'dairy',brand:'Epigamia',hint:'Enter grams consumed'},
+
+  // ── PACKED FOODS ──────────────────────────────────────────────
+  {name:'Maggi Masala Noodles (1 pack 70g)',cal:315,p:8,c:48,f:10,unit:'pack (70g)',cat:'packed',brand:'Maggi'},
+  {name:'Sunfeast Yippee! Noodles (1 pack 70g)',cal:305,p:7,c:47,f:10,unit:'pack (70g)',cat:'packed',brand:'Sunfeast'},
+  {name:'Top Ramen Masala (1 pack 70g)',cal:310,p:7.5,c:48,f:10,unit:'pack (70g)',cat:'packed',brand:'Top Ramen'},
+  {name:'Kellogg\'s Corn Flakes (100g)',cal:357,p:7.5,c:79,f:0.9,unit:'100g',per100:true,cat:'packed',brand:'Kellogg\'s',hint:'1 serving ≈ 30g'},
+  {name:'Kellogg\'s Special K (100g)',cal:379,p:15,c:73,f:1.2,unit:'100g',per100:true,cat:'packed',brand:'Kellogg\'s',hint:'1 serving ≈ 30g'},
+  {name:'Kellogg\'s Muesli (100g)',cal:370,p:9,c:64,f:8,unit:'100g',per100:true,cat:'packed',brand:'Kellogg\'s',hint:'1 serving ≈ 45g'},
+  {name:'Quaker Oats (100g)',cal:389,p:13,c:66,f:7,unit:'100g',per100:true,cat:'packed',brand:'Quaker',hint:'1 serving ≈ 40g'},
+  {name:'Saffola Oats (100g)',cal:380,p:13,c:63,f:7.5,unit:'100g',per100:true,cat:'packed',brand:'Saffola',hint:'1 serving ≈ 40g'},
+  {name:'MTR Poha Mix (1 pack 180g)',cal:268,p:7,c:48,f:5.5,unit:'pack',cat:'packed',brand:'MTR'},
+  {name:'MTR Upma Mix (1 pack 200g)',cal:220,p:6,c:38,f:5,unit:'pack',cat:'packed',brand:'MTR'},
+  {name:'MTR Idli Mix (100g dry)',cal:350,p:9,c:70,f:3,unit:'100g dry',per100:true,cat:'packed',brand:'MTR',hint:'Enter dry mix grams'},
+  {name:'Haldirams Moong Dal (100g)',cal:540,p:22,c:55,f:27,unit:'100g',per100:true,cat:'packed',brand:'Haldirams',hint:'Enter grams consumed'},
+  {name:'Haldirams Bhujia (100g)',cal:545,p:14,c:52,f:31,unit:'100g',per100:true,cat:'packed',brand:'Haldirams',hint:'Enter grams consumed'},
+  {name:'Haldirams Mixture (100g)',cal:515,p:11,c:60,f:26,unit:'100g',per100:true,cat:'packed',brand:'Haldirams',hint:'Enter grams consumed'},
+  {name:'Britannia Marie Gold (100g)',cal:447,p:9.5,c:75,f:11,unit:'100g',per100:true,cat:'packed',brand:'Britannia',hint:'1 biscuit ≈ 7.2g'},
+  {name:'Britannia Nutrichoice 5 Grain (100g)',cal:420,p:10,c:70,f:10,unit:'100g',per100:true,cat:'packed',brand:'Britannia',hint:'1 biscuit ≈ 8g'},
+  {name:'Britannia Good Day (100g)',cal:500,p:7,c:64,f:24,unit:'100g',per100:true,cat:'packed',brand:'Britannia',hint:'1 biscuit ≈ 10g'},
+  {name:'Parle-G (100g)',cal:462,p:7,c:77,f:13.5,unit:'100g',per100:true,cat:'packed',brand:'Parle',hint:'1 biscuit ≈ 7g'},
+  {name:'Hide & Seek (100g)',cal:520,p:7.5,c:63,f:27,unit:'100g',per100:true,cat:'packed',brand:'Parle',hint:'Enter grams consumed'},
+  {name:'Sunfeast Dark Fantasy (100g)',cal:505,p:7,c:62,f:25,unit:'100g',per100:true,cat:'packed',brand:'Sunfeast',hint:'Enter grams consumed'},
+  {name:'Oreo Cookies (100g)',cal:474,p:5.6,c:71,f:20,unit:'100g',per100:true,cat:'packed',brand:'Oreo',hint:'1 cookie ≈ 11g'},
+  {name:'Tuna canned (100g)',cal:116,p:25,c:0,f:1,unit:'100g',per100:true,cat:'packed',brand:'Various',hint:'1 small tin ≈ 100g'},
+  {name:'Peanut Butter — Pintola (100g)',cal:596,p:26,c:22,f:47,unit:'100g',per100:true,cat:'packed',brand:'Pintola',hint:'1 tbsp ≈ 16g'},
+  {name:'Peanut Butter — My Fitness (100g)',cal:588,p:28,c:17,f:46,unit:'100g',per100:true,cat:'packed',brand:'MyFitness',hint:'1 tbsp ≈ 16g'},
+  {name:'Sundrop Peanut Butter (100g)',cal:585,p:25,c:18,f:48,unit:'100g',per100:true,cat:'packed',brand:'Sundrop',hint:'1 tbsp ≈ 16g'},
+  {name:'Cornitos Nachos (100g)',cal:482,p:7,c:66,f:21,unit:'100g',per100:true,cat:'packed',brand:'Cornitos',hint:'Enter grams consumed'},
+
+  // ── DRINKS ───────────────────────────────────────────────────
+  {name:'Water',cal:0,p:0,c:0,f:0,unit:'any amount',cat:'drinks'},
+  {name:'Coffee black (1 cup)',cal:2,p:0.3,c:0,f:0,unit:'cup',cat:'drinks'},
+  {name:'Tea with milk (1 cup)',cal:40,p:1.5,c:5,f:1.5,unit:'cup',cat:'drinks'},
+  {name:'Green Tea (1 cup)',cal:2,p:0,c:0.5,f:0,unit:'cup',cat:'drinks'},
+  {name:'Nescafe Classic (1 tsp)',cal:4,p:0.3,c:0.7,f:0.1,unit:'tsp',cat:'drinks',brand:'Nescafe'},
+  {name:'Bru Coffee (1 tsp)',cal:4,p:0.3,c:0.7,f:0.1,unit:'tsp',cat:'drinks',brand:'Bru'},
+  {name:'Horlicks (100g powder)',cal:381,p:10.4,c:74,f:5.3,unit:'100g powder',per100:true,cat:'drinks',brand:'Horlicks',hint:'3 tsp ≈ 20g per serving'},
+  {name:'Boost (100g powder)',cal:383,p:7,c:78,f:5.2,unit:'100g powder',per100:true,cat:'drinks',brand:'Boost',hint:'3 tsp ≈ 20g per serving'},
+  {name:'Bournvita (100g powder)',cal:381,p:6.5,c:79,f:3.6,unit:'100g powder',per100:true,cat:'drinks',brand:'Bournvita',hint:'3 tsp ≈ 20g per serving'},
+  {name:'Coca-Cola (330ml can)',cal:139,p:0,c:35,f:0,unit:'330ml can',cat:'drinks',brand:'Coca-Cola'},
+  {name:'Pepsi (330ml can)',cal:150,p:0,c:41,f:0,unit:'330ml can',cat:'drinks',brand:'Pepsi'},
+  {name:'7UP/Sprite (330ml can)',cal:135,p:0,c:36,f:0,unit:'330ml can',cat:'drinks',brand:'7UP/Sprite'},
+  {name:'Thums Up (330ml can)',cal:140,p:0,c:36,f:0,unit:'330ml can',cat:'drinks',brand:'Thums Up'},
+  {name:'Limca (330ml can)',cal:130,p:0,c:33,f:0,unit:'330ml can',cat:'drinks',brand:'Limca'},
+  {name:'Maaza Mango Drink (250ml)',cal:135,p:0,c:34,f:0,unit:'250ml',cat:'drinks',brand:'Maaza'},
+  {name:'Frooti (200ml)',cal:108,p:0.2,c:27,f:0,unit:'200ml',cat:'drinks',brand:'Frooti'},
+  {name:'Real Fruit Juice Orange (200ml)',cal:96,p:0.5,c:23,f:0.2,unit:'200ml',cat:'drinks',brand:'Real'},
+  {name:'Real Fruit Juice Mixed Fruit (200ml)',cal:100,p:0.5,c:24,f:0.1,unit:'200ml',cat:'drinks',brand:'Real'},
+  {name:'Paper Boat Aam Panna (200ml)',cal:80,p:0.5,c:19,f:0.2,unit:'200ml',cat:'drinks',brand:'Paper Boat'},
+  {name:'Paper Boat Jaljeera (200ml)',cal:40,p:0.5,c:9,f:0.3,unit:'200ml',cat:'drinks',brand:'Paper Boat'},
+  {name:'Tropicana Orange 100% (200ml)',cal:86,p:0.8,c:20,f:0.3,unit:'200ml',cat:'drinks',brand:'Tropicana'},
+  {name:'Red Bull (250ml can)',cal:113,p:1,c:28,f:0,unit:'250ml',cat:'drinks',brand:'Red Bull'},
+  {name:'Monster Energy (500ml)',cal:225,p:0,c:57,f:0,unit:'500ml',cat:'drinks',brand:'Monster'},
+  {name:'Sting Energy Drink (250ml)',cal:118,p:0,c:30,f:0,unit:'250ml',cat:'drinks',brand:'Sting'},
+  {name:'Kinley Soda (300ml)',cal:0,p:0,c:0,f:0,unit:'300ml',cat:'drinks',brand:'Kinley'},
+  {name:'Coconut Water (200ml)',cal:38,p:0.7,c:9,f:0.2,unit:'200ml',cat:'drinks'},
+  {name:'Sugarcane Juice (200ml)',cal:112,p:0.5,c:28,f:0,unit:'200ml',cat:'drinks'},
+  {name:'Lassi (1 glass 200ml)',cal:118,p:4,c:22,f:2,unit:'glass',cat:'drinks'},
+  {name:'Chaas / Buttermilk (200ml)',cal:40,p:2.5,c:5,f:1,unit:'glass',cat:'drinks'},
+  {name:'Nimbu Pani plain (200ml)',cal:10,p:0.2,c:2.5,f:0,unit:'glass',cat:'drinks'},
+  {name:'Orange Juice fresh (200ml)',cal:88,p:1.4,c:20,f:0.4,unit:'glass',cat:'drinks'},
+  {name:'Protein Shake — ON Whey (1 scoop ~30g)',cal:120,p:24,c:3,f:1.5,unit:'scoop',cat:'drinks',brand:'ON'},
+  {name:'Bournvita ready-to-drink (200ml)',cal:140,p:5,c:24,f:3,unit:'200ml',cat:'drinks',brand:'Bournvita'},
+  {name:'Complan (100g powder)',cal:450,p:20,c:62,f:12,unit:'100g powder',per100:true,cat:'drinks',brand:'Complan',hint:'1 serving ≈ 35g'},
+  {name:'Beer (330ml regular)',cal:143,p:1.1,c:13,f:0,unit:'330ml',cat:'drinks'},
+  {name:'Beer (330ml light)',cal:105,p:0.9,c:6,f:0,unit:'330ml',cat:'drinks'},
+  {name:'Whisky (30ml peg)',cal:70,p:0,c:0,f:0,unit:'30ml',cat:'drinks'},
+  {name:'Wine red (150ml glass)',cal:125,p:0.1,c:4,f:0,unit:'150ml',cat:'drinks'},
+
+  // ── SNACKS & MUNCHIES ─────────────────────────────────────────
+  {name:'Lays Classic Salted (100g)',cal:536,p:6.7,c:55,f:32,unit:'100g',per100:true,cat:'snacks',brand:'Lays',hint:'Small pack ≈ 26g, large ≈ 73g'},
+  {name:'Lays American Style Cream & Onion (100g)',cal:530,p:6.5,c:56,f:31,unit:'100g',per100:true,cat:'snacks',brand:'Lays',hint:'Small pack ≈ 26g, large ≈ 73g'},
+  {name:'Kurkure Masala Munch (100g)',cal:495,p:5.5,c:68,f:22,unit:'100g',per100:true,cat:'snacks',brand:'Kurkure',hint:'Regular pack ≈ 90g'},
+  {name:'Kurkure Green Chutney (100g)',cal:488,p:5.3,c:68,f:21,unit:'100g',per100:true,cat:'snacks',brand:'Kurkure',hint:'Regular pack ≈ 90g'},
+  {name:'Bingo Mad Angles (100g)',cal:520,p:7,c:62,f:27,unit:'100g',per100:true,cat:'snacks',brand:'Bingo',hint:'Regular pack ≈ 75g'},
+  {name:'Bingo Original Style (100g)',cal:528,p:6.5,c:60,f:29,unit:'100g',per100:true,cat:'snacks',brand:'Bingo',hint:'Enter grams consumed'},
+  {name:'Cheetos (100g)',cal:541,p:7.4,c:55,f:33,unit:'100g',per100:true,cat:'snacks',brand:'Cheetos',hint:'Enter grams consumed'},
+  {name:'Doritos Nacho Cheese (100g)',cal:486,p:8,c:61,f:24,unit:'100g',per100:true,cat:'snacks',brand:'Doritos',hint:'Pack ≈ 70g'},
+  {name:'Haldirams Aloo Bhujia (100g)',cal:547,p:13,c:54,f:32,unit:'100g',per100:true,cat:'snacks',brand:'Haldirams',hint:'Enter grams consumed'},
+  {name:'Popcorn plain (100g)',cal:387,p:13,c:78,f:5,unit:'100g',per100:true,cat:'snacks',hint:'1 small bag ≈ 30g'},
+  {name:'Popcorn movie theatre butter (100g)',cal:535,p:9,c:57,f:30,unit:'100g',per100:true,cat:'snacks',hint:'Enter grams consumed'},
+  {name:'Pringles Original (100g)',cal:527,p:5,c:54,f:32,unit:'100g',per100:true,cat:'snacks',brand:'Pringles',hint:'Small tube ≈ 100g'},
+  {name:'Cadbury Dairy Milk (100g)',cal:534,p:7.5,c:59,f:30,unit:'100g',per100:true,cat:'snacks',brand:'Cadbury',hint:'1 small bar ≈ 18g'},
+  {name:'Cadbury 5 Star (1 bar 44g)',cal:215,p:2,c:32,f:8.5,unit:'44g bar',cat:'snacks',brand:'Cadbury'},
+  {name:'KitKat (4 finger, 41.5g)',cal:216,p:2.9,c:27,f:11,unit:'41.5g',cat:'snacks',brand:'KitKat'},
+  {name:'Snickers (50g bar)',cal:245,p:4.4,c:32,f:12.5,unit:'50g',cat:'snacks',brand:'Snickers'},
+  {name:'Dairy Milk Silk (100g)',cal:540,p:7.5,c:56,f:33,unit:'100g',per100:true,cat:'snacks',brand:'Cadbury',hint:'1 bar ≈ 55g'},
+  {name:'Eclairs (1 piece ≈ 6g)',cal:28,p:0.3,c:4,f:1.2,unit:'piece',cat:'snacks',brand:'Cadbury'},
+  {name:'Ferrero Rocher (1 piece 12.5g)',cal:73,p:1,c:6.6,f:4.6,unit:'piece',cat:'snacks',brand:'Ferrero'},
+  {name:'Dark Chocolate 70%+ (100g)',cal:598,p:7.8,c:46,f:43,unit:'100g',per100:true,cat:'snacks',hint:'Enter grams consumed'},
+  {name:'Samosa (1 medium)',cal:260,p:5,c:30,f:14,unit:'samosa',cat:'snacks'},
+  {name:'Kachori (1)',cal:200,p:4,c:24,f:10,unit:'kachori',cat:'snacks'},
+  {name:'Vada Pav (1)',cal:300,p:7,c:45,f:10,unit:'vada pav',cat:'snacks'},
+  {name:'Pav Bhaji (1 plate)',cal:450,p:10,c:65,f:15,unit:'plate',cat:'snacks'},
+  {name:'Bhel Puri (1 plate)',cal:200,p:5,c:38,f:4,unit:'plate',cat:'snacks'},
+  {name:'Sev Puri (4 pieces)',cal:180,p:4,c:28,f:6,unit:'4 pieces',cat:'snacks'},
+  {name:'Masala Puri (1 plate)',cal:230,p:6,c:40,f:5,unit:'plate',cat:'snacks'},
+  {name:'Dhokla (100g)',cal:160,p:7,c:28,f:2.5,unit:'100g',per100:true,cat:'snacks',hint:'Enter grams consumed'},
+  {name:'Aloo Tikki (1)',cal:175,p:4,c:26,f:6,unit:'tikki',cat:'snacks'},
+  {name:'Nankhatai (1 biscuit)',cal:80,p:1.2,c:10,f:4,unit:'biscuit',cat:'snacks'},
+  {name:'Murmura / Puffed Rice (100g)',cal:325,p:8,c:72,f:0.5,unit:'100g',per100:true,cat:'snacks',hint:'1 cup ≈ 15g'},
+
+  // ── RESTAURANT / CHAINS ───────────────────────────────────────
+  {name:'McD McAloo Tikki Burger',cal:300,p:8,c:45,f:10,unit:'burger',cat:'restaurant',brand:'McDonald\'s'},
+  {name:'McD Chicken Maharaja Mac',cal:543,p:30,c:46,f:26,unit:'burger',cat:'restaurant',brand:'McDonald\'s'},
+  {name:'McD McChicken Burger',cal:393,p:17,c:41,f:18,unit:'burger',cat:'restaurant',brand:'McDonald\'s'},
+  {name:'McD French Fries (medium)',cal:320,p:4.5,c:43,f:15,unit:'medium',cat:'restaurant',brand:'McDonald\'s'},
+  {name:'McD French Fries (large)',cal:490,p:7,c:66,f:23,unit:'large',cat:'restaurant',brand:'McDonald\'s'},
+  {name:'KFC Chicken Popcorn (medium)',cal:361,p:21,c:29,f:18,unit:'medium box',cat:'restaurant',brand:'KFC'},
+  {name:'KFC Zinger Burger',cal:450,p:24,c:42,f:21,unit:'burger',cat:'restaurant',brand:'KFC'},
+  {name:'KFC Hot & Crispy Chicken (1 pc)',cal:240,p:16,c:14,f:13,unit:'piece',cat:'restaurant',brand:'KFC'},
+  {name:'Dominos Margherita Pizza (1 slice medium)',cal:190,p:8,c:27,f:6,unit:'slice',cat:'restaurant',brand:'Domino\'s'},
+  {name:'Dominos Peppy Paneer Pizza (1 slice medium)',cal:210,p:9,c:28,f:8,unit:'slice',cat:'restaurant',brand:'Domino\'s'},
+  {name:'Dominos Chicken Tikka Pizza (1 slice medium)',cal:220,p:12,c:27,f:8,unit:'slice',cat:'restaurant',brand:'Domino\'s'},
+  {name:'Pizza Hut Veggie Supreme (1 slice medium)',cal:200,p:8,c:27,f:7.5,unit:'slice',cat:'restaurant',brand:'Pizza Hut'},
+  {name:'Pizza Hut Chicken Supreme (1 slice medium)',cal:230,p:12,c:27,f:9,unit:'slice',cat:'restaurant',brand:'Pizza Hut'},
+  {name:'Subway Veg Delite 6 inch',cal:230,p:8,c:42,f:4,unit:'6 inch sub',cat:'restaurant',brand:'Subway'},
+  {name:'Subway Chicken Teriyaki 6 inch',cal:310,p:22,c:44,f:6,unit:'6 inch sub',cat:'restaurant',brand:'Subway'},
+  {name:'Subway BMT 6 inch',cal:350,p:23,c:43,f:11,unit:'6 inch sub',cat:'restaurant',brand:'Subway'},
+  {name:'Biryani chicken (1 plate)',cal:450,p:30,c:55,f:12,unit:'plate',cat:'restaurant'},
+  {name:'Biryani veg (1 plate)',cal:380,p:10,c:65,f:10,unit:'plate',cat:'restaurant'},
+  {name:'Butter Chicken (100g)',cal:150,p:12,c:7,f:9,unit:'100g',per100:true,cat:'restaurant',hint:'1 restaurant serving ≈ 200-250g'},
+  {name:'Dal Makhani (100g)',cal:135,p:6,c:15,f:6,unit:'100g',per100:true,cat:'restaurant',hint:'1 restaurant serving ≈ 200g'},
+  {name:'Palak Paneer (100g)',cal:280,p:14,c:12,f:20,unit:'100g',per100:true,cat:'restaurant',hint:'1 restaurant serving ≈ 200g'},
+  {name:'Chole Bhature (1 plate)',cal:650,p:18,c:90,f:24,unit:'plate',cat:'restaurant'},
+  {name:'Thali Veg (full)',cal:700,p:25,c:100,f:20,unit:'thali',cat:'restaurant'},
+  {name:'Thali Non-Veg (full)',cal:850,p:50,c:90,f:30,unit:'thali',cat:'restaurant'},
+  {name:'Paneer Butter Masala (100g)',cal:180,p:10,c:8,f:13,unit:'100g',per100:true,cat:'restaurant',hint:'1 serving ≈ 200g'},
+  {name:'Sambar (1 cup restaurant)',cal:90,p:4,c:16,f:1.5,unit:'cup',cat:'restaurant'},
+  {name:'Gulab Jamun (1 piece)',cal:175,p:2,c:28,f:7,unit:'piece',cat:'restaurant'},
+  {name:'Rasgulla (1 piece)',cal:125,p:2.5,c:25,f:2,unit:'piece',cat:'restaurant'},
+  {name:'Jalebi (100g)',cal:357,p:3,c:68,f:9,unit:'100g',per100:true,cat:'restaurant',hint:'1 small jalebi ≈ 30g'},
+  {name:'Halwa Sooji (100g)',cal:297,p:4,c:46,f:11,unit:'100g',per100:true,cat:'restaurant',hint:'Enter grams consumed'},
+
+  // ── SUPPLEMENTS ───────────────────────────────────────────────
+  {name:'Whey Protein ON Gold Standard (1 scoop ~30g)',cal:120,p:24,c:3,f:1.5,unit:'scoop',cat:'supplements',brand:'ON'},
+  {name:'Whey Protein MuscleBlaze (1 scoop ~33g)',cal:126,p:25,c:3.5,f:1.8,unit:'scoop',cat:'supplements',brand:'MuscleBlaze'},
+  {name:'Whey Protein Dymatize ISO100 (1 scoop 29g)',cal:110,p:25,c:1,f:0.5,unit:'scoop',cat:'supplements',brand:'Dymatize'},
+  {name:'Whey Protein BigMuscles (1 scoop 33g)',cal:133,p:26,c:3.3,f:2,unit:'scoop',cat:'supplements',brand:'BigMuscles'},
+  {name:'Creatine Monohydrate (5g)',cal:0,p:0,c:0,f:0,unit:'5g serving',cat:'supplements'},
+  {name:'BCAA (1 scoop)',cal:15,p:5,c:0,f:0,unit:'scoop',cat:'supplements'},
+  {name:'Mass Gainer MuscleBlaze (1 scoop 75g)',cal:271,p:11,c:48,f:4,unit:'scoop',cat:'supplements',brand:'MuscleBlaze'},
+  {name:'Casein Protein (1 scoop 33g)',cal:115,p:24,c:4,f:1,unit:'scoop',cat:'supplements'},
+  {name:'Multivitamin tablet',cal:0,p:0,c:0,f:0,unit:'tablet',cat:'supplements'},
+  {name:'Fish Oil (1 capsule)',cal:10,p:0,c:0,f:1,unit:'capsule',cat:'supplements'},
 ];
 
 const MEALS=[
@@ -469,10 +807,11 @@ const MEALS=[
   {id:'snacks',   name:'Snacks',   icon:'🍎',cls:'meal-snacks',   badge:'#eeecfe',badgeText:'#3a328f'},
 ];
 
-// ─── STATE ────────────────────────────────────────────────────────────────────
-let state=JSON.parse(localStorage.getItem('nt3_state')||'{}');
-let goals=JSON.parse(localStorage.getItem('nt3_goals')||'null')||{cal:2000,p:150,c:200,f:65,steps:10000};
-let activeMeal=null, selectedFood=null;
+// ─── STATE ─────────────────────────────────────────────────────────
+let state=JSON.parse(localStorage.getItem('nt4_state')||'{}');
+let goals=JSON.parse(localStorage.getItem('nt4_goals')||'null')||{cal:2000,p:150,c:200,f:65,steps:10000,bw:70};
+let activeMeal=null, selectedFood=null, currentFoodFilter='all';
+let exercises=[];
 let charts={};
 
 function todayStr(){return new Date().toISOString().slice(0,10);}
@@ -481,7 +820,7 @@ function dayData(date){
   if(!state[date].meals)state[date].meals={breakfast:[],lunch:[],dinner:[],snacks:[]};
   return state[date];
 }
-function save(){localStorage.setItem('nt3_state',JSON.stringify(state));localStorage.setItem('nt3_goals',JSON.stringify(goals));}
+function save(){localStorage.setItem('nt4_state',JSON.stringify(state));localStorage.setItem('nt4_goals',JSON.stringify(goals));}
 function r(n){return Math.round(n);}
 function fd(n,d=1){return(+n).toFixed(d);}
 
@@ -497,11 +836,11 @@ function dayTotals(date){
   return{cal,p,c,f,burned,steps:d.steps||0,weight:d.weight};
 }
 
-// ─── TOAST ────────────────────────────────────────────────────────────────────
+// ─── TOAST ─────────────────────────────────────────────────────────
 let tt;
-function toast(msg){const el=document.getElementById('toast');el.textContent=msg;el.classList.add('show');clearTimeout(tt);tt=setTimeout(()=>el.classList.remove('show'),2000);}
+function toast(msg){const el=document.getElementById('toast');el.textContent=msg;el.classList.add('show');clearTimeout(tt);tt=setTimeout(()=>el.classList.remove('show'),2200);}
 
-// ─── NAV ──────────────────────────────────────────────────────────────────────
+// ─── NAV ───────────────────────────────────────────────────────────
 function showPage(id,btn){
   document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
   document.querySelectorAll('.nav-btn').forEach(b=>b.classList.remove('active'));
@@ -513,15 +852,13 @@ function showPage(id,btn){
   if(id==='reports')showReport('week');
 }
 
-// ─── INIT ─────────────────────────────────────────────────────────────────────
+// ─── INIT ──────────────────────────────────────────────────────────
 function init(){
   const now=new Date();
   document.getElementById('topdate').textContent=now.toLocaleDateString('en-IN',{weekday:'short',day:'numeric',month:'short',year:'numeric'});
   document.getElementById('today-label').textContent=now.toLocaleDateString('en-IN',{weekday:'long',day:'numeric',month:'long',year:'numeric'});
   document.getElementById('log-date').value=todayStr();
-  loadGoalsUI();
-  buildMealsGrid();
-  refreshToday();
+  loadGoalsUI();buildMealsGrid();refreshToday();
 }
 
 function loadGoalsUI(){
@@ -530,16 +867,24 @@ function loadGoalsUI(){
   document.getElementById('g-c').value=goals.c;
   document.getElementById('g-f').value=goals.f;
   document.getElementById('g-steps').value=goals.steps;
+  document.getElementById('g-bw').value=goals.bw||70;
   document.getElementById('m-cal-goal').textContent=goals.cal;
   document.getElementById('m-step-goal').textContent=goals.steps.toLocaleString();
 }
 
 function saveGoals(){
-  goals={cal:+document.getElementById('g-cal').value||2000,p:+document.getElementById('g-p').value||150,c:+document.getElementById('g-c').value||200,f:+document.getElementById('g-f').value||65,steps:+document.getElementById('g-steps').value||10000};
+  goals={
+    cal:+document.getElementById('g-cal').value||2000,
+    p:+document.getElementById('g-p').value||150,
+    c:+document.getElementById('g-c').value||200,
+    f:+document.getElementById('g-f').value||65,
+    steps:+document.getElementById('g-steps').value||10000,
+    bw:+document.getElementById('g-bw').value||70
+  };
   save();loadGoalsUI();refreshToday();toast('Goals saved!');
 }
 
-// ─── MEALS GRID ───────────────────────────────────────────────────────────────
+// ─── MEALS GRID ────────────────────────────────────────────────────
 function buildMealsGrid(){
   const grid=document.getElementById('meals-grid');
   grid.innerHTML=MEALS.map(m=>`
@@ -572,12 +917,13 @@ function refreshMealCard(date,mealId){
       <div class="food-macros">
         <span class="tag tag-cal">${r(f.cal)}</span>
         <span class="tag tag-p">P${r(f.p)}</span>
+        ${f.isPacked?'<span class="tag tag-packed">📦</span>':''}
       </div>
       <button class="del-btn" onclick="delFood('${date}','${mealId}',${i})">✕</button>
     </div>`).join('');
 }
 
-// ─── TODAY ────────────────────────────────────────────────────────────────────
+// ─── TODAY ─────────────────────────────────────────────────────────
 function refreshToday(){
   const date=todayStr();
   const t=dayTotals(date);
@@ -597,14 +943,12 @@ function refreshToday(){
     document.getElementById('lbl-'+k).textContent=r(t[k])+' / '+goals[k]+'g';
   });
 
-  // Meal summary cards
   const ids={breakfast:'ms-b',lunch:'ms-l',dinner:'ms-d',snacks:'ms-s'};
   MEALS.forEach(m=>{
     const mt=mealTotals(date,m.id);
     document.getElementById(ids[m.id]).textContent=r(mt.cal);
   });
 
-  // Food by meal panel
   const container=document.getElementById('today-food-by-meal');
   let html='';
   MEALS.forEach(m=>{
@@ -620,16 +964,24 @@ function refreshToday(){
   });
   container.innerHTML=html||'<div class="empty">No food logged today. Go to the Log tab.</div>';
 
-  // Workouts
   const d=dayData(date);
   const wl=document.getElementById('today-workouts');
   wl.innerHTML=d.workouts.length?d.workouts.map(w=>`
     <div class="workout-item">
-      <div><div class="workout-name">${w.type}</div><div class="workout-meta">${w.dur} min · ${w.cals} kcal</div></div>
+      <div>
+        <div class="workout-name">${w.type}</div>
+        <div class="workout-meta">${w.dur} min · ${r(w.cals)} kcal${w.intensity&&w.intensity!='1.0'?' · '+intensityLabel(w.intensity):''}${w.exercises&&w.exercises.length?' · '+w.exercises.length+' exercises':''}</div>
+        ${w.notes?`<div style="font-size:10px;color:var(--text3);margin-top:2px;font-style:italic;">${w.notes}</div>`:''}
+      </div>
     </div>`).join(''):'<div class="empty">No workouts logged.</div>';
 }
 
-// ─── LOG PAGE ─────────────────────────────────────────────────────────────────
+function intensityLabel(v){
+  const m={'0.8':'Light','1.0':'Moderate','1.2':'Hard','1.4':'Max'};
+  return m[v]||'Moderate';
+}
+
+// ─── LOG PAGE ──────────────────────────────────────────────────────
 function refreshLogPage(){
   const date=document.getElementById('log-date').value||todayStr();
   const d=dayData(date);
@@ -637,7 +989,11 @@ function refreshLogPage(){
   const wl=document.getElementById('log-workout-list');
   wl.innerHTML=d.workouts.length?d.workouts.map((w,i)=>`
     <div class="workout-item">
-      <div><div class="workout-name">${w.type}</div><div class="workout-meta">${w.dur} min · ${w.cals} kcal</div></div>
+      <div>
+        <div class="workout-name">${w.type}</div>
+        <div class="workout-meta">${w.dur} min · ${r(w.cals)} kcal${w.exercises&&w.exercises.length?' · '+w.exercises.length+' ex':''}</div>
+        ${w.notes?`<div style="font-size:10px;color:var(--text3);font-style:italic;">${w.notes}</div>`:''}
+      </div>
       <button class="del-btn" onclick="delWorkout('${date}',${i})">✕</button>
     </div>`).join(''):'';
   document.getElementById('inp-steps').value=d.steps||'';
@@ -657,7 +1013,7 @@ function delWorkout(date,idx){
   toast('Workout removed.');
 }
 
-// ─── MODAL ────────────────────────────────────────────────────────────────────
+// ─── FOOD MODAL ────────────────────────────────────────────────────
 function openModal(mealId){
   const m=MEALS.find(x=>x.id===mealId);
   activeMeal=mealId;
@@ -670,6 +1026,8 @@ function openModal(mealId){
   document.getElementById('suggestions').style.display='none';
   document.getElementById('add-panel').style.display='none';
   selectedFood=null;
+  currentFoodFilter='all';
+  document.querySelectorAll('.filter-pills .pill').forEach((p,i)=>p.classList.toggle('active',i===0));
   document.getElementById('food-modal').classList.remove('hidden');
   setTimeout(()=>document.getElementById('food-search').focus(),50);
 }
@@ -679,81 +1037,270 @@ function closeModal(){
 }
 document.getElementById('food-modal').addEventListener('click',function(e){if(e.target===this)closeModal();});
 
-// ─── FOOD SEARCH ──────────────────────────────────────────────────────────────
+function setFoodFilter(cat,el){
+  currentFoodFilter=cat;
+  document.querySelectorAll('.filter-pills .pill').forEach(p=>p.classList.remove('active'));
+  el.classList.add('active');
+  searchFood();
+}
+
 function searchFood(){
   const q=document.getElementById('food-search').value.toLowerCase().trim();
   const sug=document.getElementById('suggestions');
   const panel=document.getElementById('add-panel');
-  if(q.length<2){sug.style.display='none';return;}
-  const res=FOODS.filter(f=>f.name.toLowerCase().includes(q)).slice(0,9);
-  if(!res.length){
-    sug.innerHTML=`<div class="sug-item" style="color:var(--text3);">No match — add manually below</div>
-      <div class="sug-item" onclick="addManual()"><strong>+ Add "${document.getElementById('food-search').value}" manually</strong></div>`;
-  }else{
-    sug.innerHTML=res.map(f=>`
-      <div class="sug-item" onclick="selectFood(${FOODS.indexOf(f)})">
-        <span>${f.name}</span>
-        <span class="sug-meta">${f.cal} kcal · P${f.p} C${f.c} F${f.f}</span>
-      </div>`).join('');
+
+  let pool=FOODS;
+  if(currentFoodFilter!=='all') pool=FOODS.filter(f=>f.cat===currentFoodFilter);
+
+  if(q.length<2 && currentFoodFilter==='all'){sug.style.display='none';return;}
+
+  let res;
+  if(q.length>=2){
+    // Score: exact name match > word start match > contains
+    res=pool.filter(f=>f.name.toLowerCase().includes(q)||(f.brand&&f.brand.toLowerCase().includes(q)));
+    res.sort((a,b)=>{
+      const aName=a.name.toLowerCase(), bName=b.name.toLowerCase();
+      const aEx=aName.startsWith(q)?0:aName.split(' ').some(w=>w.startsWith(q))?1:2;
+      const bEx=bName.startsWith(q)?0:bName.split(' ').some(w=>w.startsWith(q))?1:2;
+      return aEx-bEx;
+    });
+  } else {
+    res=pool.slice(0,20);
   }
-  sug.style.display='block';panel.style.display='none';
+  res=res.slice(0,15);
+
+  if(!res.length){
+    sug.innerHTML=`<div class="sug-item" style="color:var(--text3);cursor:default;">No match found</div>
+      <div class="sug-item" onclick="addManual()"><strong>+ Add "${document.getElementById('food-search').value||'custom food'}" manually</strong></div>`;
+  } else {
+    sug.innerHTML=res.map(f=>{
+      const idx=FOODS.indexOf(f);
+      const metaBits=[];
+      if(f.cal)metaBits.push(f.cal+(f.per100?'/100g':'')+' kcal');
+      if(f.p)metaBits.push('P'+f.p+'g');
+      const catIcons={fresh:'🥦',dairy:'🥛',packed:'📦',drinks:'🥤',snacks:'🍟',restaurant:'🍽️',supplements:'💊'};
+      return`<div class="sug-item" onclick="selectFood(${idx})">
+        <span>${catIcons[f.cat]||''} ${f.name}${f.brand?` <span style="font-size:9px;color:var(--text3);">(${f.brand})</span>`:''}</span>
+        <span class="sug-meta">${metaBits.join(' · ')}${f.per100?'<br><span style="color:var(--green-t);font-size:9px;">📐 per 100g/ml</span>':''}</span>
+      </div>`;
+    }).join('');
+    // Add manual option at bottom
+    if(q.length>=2) sug.innerHTML+=`<div class="sug-item" onclick="addManual()" style="color:var(--text3);">+ Add "${q}" manually</div>`;
+  }
+  sug.style.display='block';
+  panel.style.display='none';
 }
 
 function selectFood(idx){
   const f=FOODS[idx];
   selectedFood={...f};
-  document.getElementById('add-panel-name').textContent=f.name+' (per '+f.unit+')';
-  document.getElementById('ea-qty').value=1;
-  document.getElementById('ea-cal').value=f.cal;
-  document.getElementById('ea-p').value=f.p;
-  document.getElementById('ea-c').value=f.c;
-  document.getElementById('ea-f').value=f.f;
+  document.getElementById('add-panel-name').textContent=f.name+(f.brand?` (${f.brand})`:'');
+  document.getElementById('add-panel-hint').textContent=f.hint||'';
+  renderAddPanelFields(f);
   document.getElementById('suggestions').style.display='none';
   document.getElementById('add-panel').style.display='block';
 }
 
+function renderAddPanelFields(f){
+  const container=document.getElementById('add-panel-fields');
+  if(f.per100){
+    // Per-100g/ml food: show quantity in grams/ml, auto-calculate
+    container.innerHTML=`
+      <div class="field-group">
+        <label>${f.unit.includes('ml')?'Amount (ml)':'Amount (g)'}</label>
+        <input type="number" id="ea-qty100" value="100" min="1" step="1" class="wide" oninput="updatePer100Calc()"/>
+      </div>
+      <div class="field-group">
+        <label>Calories <span class="auto-badge">AUTO</span></label>
+        <input type="number" id="ea-cal" readonly style="background:var(--green-bg);color:var(--green-t);font-weight:500;" value="${f.cal}"/>
+      </div>
+      <div class="field-group">
+        <label>Protein (g) <span class="auto-badge">AUTO</span></label>
+        <input type="number" id="ea-p" readonly style="background:var(--blue-bg);color:var(--blue-t);" value="${f.p}"/>
+      </div>
+      <div class="field-group">
+        <label>Carbs (g) <span class="auto-badge">AUTO</span></label>
+        <input type="number" id="ea-c" readonly style="background:var(--amber-bg);color:var(--amber-t);" value="${f.c}"/>
+      </div>
+      <div class="field-group">
+        <label>Fat (g) <span class="auto-badge">AUTO</span></label>
+        <input type="number" id="ea-f" readonly style="background:var(--coral-bg);color:var(--coral-t);" value="${f.f}"/>
+      </div>`;
+    updatePer100Calc();
+  } else {
+    // Fixed serving: qty multiplier
+    container.innerHTML=`
+      <div class="field-group">
+        <label>Servings / qty</label>
+        <input type="number" id="ea-qty" value="1" min="0.1" step="0.1" oninput="updateQtyCalc()"/>
+      </div>
+      <div class="field-group">
+        <label>Calories <span class="auto-badge">AUTO</span></label>
+        <input type="number" id="ea-cal" readonly style="background:var(--green-bg);color:var(--green-t);font-weight:500;" value="${f.cal}"/>
+      </div>
+      <div class="field-group">
+        <label>Protein (g) <span class="auto-badge">AUTO</span></label>
+        <input type="number" id="ea-p" readonly style="background:var(--blue-bg);color:var(--blue-t);" value="${f.p}"/>
+      </div>
+      <div class="field-group">
+        <label>Carbs (g) <span class="auto-badge">AUTO</span></label>
+        <input type="number" id="ea-c" readonly style="background:var(--amber-bg);color:var(--amber-t);" value="${f.c}"/>
+      </div>
+      <div class="field-group">
+        <label>Fat (g) <span class="auto-badge">AUTO</span></label>
+        <input type="number" id="ea-f" readonly style="background:var(--coral-bg);color:var(--coral-t);" value="${f.f}"/>
+      </div>`;
+  }
+}
+
+function updatePer100Calc(){
+  if(!selectedFood||!selectedFood.per100)return;
+  const qty=+document.getElementById('ea-qty100').value||100;
+  const ratio=qty/100;
+  document.getElementById('ea-cal').value=fd(selectedFood.cal*ratio,1);
+  document.getElementById('ea-p').value=fd(selectedFood.p*ratio,1);
+  document.getElementById('ea-c').value=fd(selectedFood.c*ratio,1);
+  document.getElementById('ea-f').value=fd(selectedFood.f*ratio,1);
+}
+
+function updateQtyCalc(){
+  if(!selectedFood)return;
+  const qty=+document.getElementById('ea-qty').value||1;
+  document.getElementById('ea-cal').value=fd(selectedFood.cal*qty,1);
+  document.getElementById('ea-p').value=fd(selectedFood.p*qty,1);
+  document.getElementById('ea-c').value=fd(selectedFood.c*qty,1);
+  document.getElementById('ea-f').value=fd(selectedFood.f*qty,1);
+}
+
 function addManual(){
-  selectedFood={name:document.getElementById('food-search').value||'Custom food'};
-  document.getElementById('add-panel-name').textContent=selectedFood.name;
-  ['ea-qty','ea-cal','ea-p','ea-c','ea-f'].forEach(id=>document.getElementById(id).value='');
-  document.getElementById('ea-qty').value=1;
+  selectedFood={name:document.getElementById('food-search').value||'Custom food',manual:true};
+  document.getElementById('add-panel-name').textContent=selectedFood.name+' — enter macros manually';
+  document.getElementById('add-panel-hint').textContent='Check the nutrition label and enter values below';
+  document.getElementById('add-panel-fields').innerHTML=`
+    <div class="field-group"><label>Calories</label><input type="number" id="ea-cal" placeholder="kcal"/></div>
+    <div class="field-group"><label>Protein (g)</label><input type="number" id="ea-p" placeholder="g"/></div>
+    <div class="field-group"><label>Carbs (g)</label><input type="number" id="ea-c" placeholder="g"/></div>
+    <div class="field-group"><label>Fat (g)</label><input type="number" id="ea-f" placeholder="g"/></div>`;
   document.getElementById('suggestions').style.display='none';
   document.getElementById('add-panel').style.display='block';
 }
 
 function confirmAddFood(){
-  if(!selectedFood){toast('Select or search a food first.');return;}
+  if(!selectedFood){toast('Search or select a food first.');return;}
   if(!activeMeal)return;
-  const qty=+document.getElementById('ea-qty').value||1;
   const date=document.getElementById('log-date').value||todayStr();
   const entry={
     name:selectedFood.name,
-    cal:Math.round((+document.getElementById('ea-cal').value||0)*qty*10)/10,
-    p:Math.round((+document.getElementById('ea-p').value||0)*qty*10)/10,
-    c:Math.round((+document.getElementById('ea-c').value||0)*qty*10)/10,
-    f:Math.round((+document.getElementById('ea-f').value||0)*qty*10)/10,
+    cal:Math.round((+document.getElementById('ea-cal').value||0)*10)/10,
+    p:Math.round((+document.getElementById('ea-p').value||0)*10)/10,
+    c:Math.round((+document.getElementById('ea-c').value||0)*10)/10,
+    f:Math.round((+document.getElementById('ea-f').value||0)*10)/10,
+    isPacked:!!selectedFood.per100||selectedFood.cat==='packed',
   };
   dayData(date).meals[activeMeal].push(entry);
   save();
   refreshMealCard(date,activeMeal);
   if(date===todayStr())refreshToday();
   closeModal();
-  toast('Added to '+activeMeal+'!');
+  toast('Added '+entry.name+'!');
 }
 
-// ─── WORKOUT / STEPS / WEIGHT ─────────────────────────────────────────────────
-function addWorkout(){
-  const date=document.getElementById('log-date').value||todayStr();
-  const type=document.getElementById('w-type').value;
-  const dur=+document.getElementById('w-dur').value||0;
-  const cals=+document.getElementById('w-cals').value||0;
-  if(!dur){toast('Enter workout duration.');return;}
-  dayData(date).workouts.push({type,dur,cals});
-  save();refreshLogPage();if(date===todayStr())refreshToday();
-  document.getElementById('w-dur').value='';
-  document.getElementById('w-cals').value='';
-  toast('Workout logged!');
+// ─── WORKOUT MODAL ─────────────────────────────────────────────────
+function openWorkoutModal(){
+  exercises=[];
+  document.getElementById('exercise-list').innerHTML='';
+  document.getElementById('wm-dur').value='';
+  document.getElementById('wm-override').value='';
+  document.getElementById('wm-notes').value='';
+  document.getElementById('wm-ex-name').value='';
+  document.getElementById('wm-ex-sets').value='';
+  document.getElementById('wm-ex-reps').value='';
+  document.getElementById('wm-ex-kg').value='';
+  document.getElementById('wm-cal-preview').style.display='none';
+  document.getElementById('workout-modal').classList.remove('hidden');
 }
+
+function closeWorkoutModal(){
+  document.getElementById('workout-modal').classList.add('hidden');
+}
+document.getElementById('workout-modal').addEventListener('click',function(e){if(e.target===this)closeWorkoutModal();});
+
+function addExerciseRow(){
+  const name=document.getElementById('wm-ex-name').value.trim();
+  if(!name){toast('Enter exercise name');return;}
+  const sets=+document.getElementById('wm-ex-sets').value||0;
+  const reps=+document.getElementById('wm-ex-reps').value||0;
+  const kg=+document.getElementById('wm-ex-kg').value||0;
+  exercises.push({name,sets,reps,kg});
+  document.getElementById('wm-ex-name').value='';
+  document.getElementById('wm-ex-sets').value='';
+  document.getElementById('wm-ex-reps').value='';
+  document.getElementById('wm-ex-kg').value='';
+  renderExerciseList();
+  updateWorkoutCalPreview();
+}
+
+function removeExercise(idx){
+  exercises.splice(idx,1);
+  renderExerciseList();
+  updateWorkoutCalPreview();
+}
+
+function renderExerciseList(){
+  const el=document.getElementById('exercise-list');
+  if(!exercises.length){el.innerHTML='';return;}
+  el.innerHTML=exercises.map((e,i)=>`
+    <div class="ex-item">
+      <div class="ex-name">${e.name}</div>
+      <div class="ex-meta">${e.sets?e.sets+'×':''} ${e.reps?e.reps+' reps':''} ${e.kg?'@ '+e.kg+'kg':''}</div>
+      <button class="del-btn" onclick="removeExercise(${i})">✕</button>
+    </div>`).join('');
+}
+
+function calcWorkoutCals(){
+  const override=+document.getElementById('wm-override').value;
+  if(override>0)return override;
+  const type=document.getElementById('wm-type').value;
+  const dur=+document.getElementById('wm-dur').value||0;
+  const intensity=+document.getElementById('wm-intensity').value||1.0;
+  const bw=goals.bw||70;
+  const met=MET_VALUES[type]||5.0;
+  return Math.round(met * bw * (dur/60) * intensity);
+}
+
+function updateWorkoutCalPreview(){
+  const dur=+document.getElementById('wm-dur').value||0;
+  const preview=document.getElementById('wm-cal-preview');
+  if(!dur){preview.style.display='none';return;}
+  const cals=calcWorkoutCals();
+  const override=+document.getElementById('wm-override').value;
+  preview.style.display='block';
+  if(override>0){
+    preview.textContent=`🔥 ${cals} kcal burned (manual override)`;
+  } else {
+    const type=document.getElementById('wm-type').value;
+    const intensity=document.getElementById('wm-intensity').value;
+    const bw=goals.bw||70;
+    preview.textContent=`🔥 Estimated ${cals} kcal burned — ${type}, ${dur} min, ${intensityLabel(intensity)}, ${bw}kg body weight`;
+  }
+}
+
+function confirmWorkout(){
+  const date=document.getElementById('log-date').value||todayStr();
+  const type=document.getElementById('wm-type').value;
+  const dur=+document.getElementById('wm-dur').value||0;
+  if(!dur){toast('Enter workout duration.');return;}
+  const cals=calcWorkoutCals();
+  const intensity=document.getElementById('wm-intensity').value;
+  const notes=document.getElementById('wm-notes').value.trim();
+  dayData(date).workouts.push({type,dur,cals,intensity,exercises:[...exercises],notes});
+  save();refreshLogPage();
+  if(date===todayStr())refreshToday();
+  closeWorkoutModal();
+  toast(`Workout logged! ~${cals} kcal burned 🔥`);
+}
+
+// ─── STEPS / WEIGHT ────────────────────────────────────────────────
 function logSteps(){
   const date=document.getElementById('log-date').value||todayStr();
   dayData(date).steps=+document.getElementById('inp-steps').value||0;
@@ -763,10 +1310,14 @@ function logWeight(){
   const date=document.getElementById('log-date').value||todayStr();
   const w=+document.getElementById('inp-weight').value||null;
   if(!w){toast('Enter a valid weight.');return;}
-  dayData(date).weight=w;save();if(date===todayStr())refreshToday();toast('Weight saved!');
+  dayData(date).weight=w;
+  // Also update goals.bw for calorie calculations
+  goals.bw=w;
+  document.getElementById('g-bw').value=w;
+  save();if(date===todayStr())refreshToday();toast('Weight saved & updated for calorie calc!');
 }
 
-// ─── TRENDS ───────────────────────────────────────────────────────────────────
+// ─── TRENDS ────────────────────────────────────────────────────────
 function getLast30(){
   const days=[];
   for(let i=29;i>=0;i--){const d=new Date();d.setDate(d.getDate()-i);days.push(d.toISOString().slice(0,10));}
@@ -791,7 +1342,6 @@ function buildTrends(){
     {label:'Burned',data:calOut,backgroundColor:'rgba(212,86,40,0.65)',borderRadius:3}
   ]},{plugins:{legend:{display:false}},scales:{x:{ticks:{maxTicksLimit:10,font:{size:10}}},y:{ticks:{font:{size:10}}}}});
 
-  // Meal distribution last 7 days
   const last7=days.slice(-7);
   const mealAvg=MEALS.map(m=>{
     const vals=last7.map(d=>mealTotals(d,m.id).cal);
@@ -815,7 +1365,7 @@ function buildTrends(){
     .map(m=>`<div style="display:flex;align-items:center;gap:8px;"><span style="width:11px;height:11px;border-radius:3px;background:${m.c};flex-shrink:0;display:inline-block;"></span><span style="color:var(--text2);">${m.l}</span><span style="font-weight:600;font-family:'DM Mono',monospace;">${m.v}g</span><span style="font-size:10px;color:var(--text3);">avg/day</span></div>`).join('');
 }
 
-// ─── REPORTS ──────────────────────────────────────────────────────────────────
+// ─── REPORTS ───────────────────────────────────────────────────────
 function showReport(type){
   ['week','month'].forEach(t=>document.getElementById('tab-'+t).className='btn'+(t===type?'':' sec'));
   const daysN=type==='week'?7:30;
@@ -854,7 +1404,7 @@ function showReport(type){
       <td>${r(t.burned)}</td>
       <td>${r(t.steps).toLocaleString()}</td>
     </tr>`;}).join('')}</tbody>
-  </table></div>`:'' ;
+  </table></div>`:'';
 
   const weightRow=wChange!==null?`<div style="margin-top:12px;padding:11px 13px;background:var(--bg);border-radius:10px;border:1px solid var(--border);font-size:12px;display:flex;align-items:center;gap:10px;flex-wrap:wrap;">
     <span style="color:var(--text3);">Weight change (${daysN} days):</span>
@@ -879,7 +1429,7 @@ function showReport(type){
 }
 
 document.addEventListener('click',e=>{
-  if(!e.target.closest('#food-search')&&!e.target.closest('.suggestions'))
+  if(!e.target.closest('#food-search')&&!e.target.closest('.suggestions')&&!e.target.closest('.filter-pills'))
     document.getElementById('suggestions').style.display='none';
 });
 
