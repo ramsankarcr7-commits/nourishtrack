@@ -513,10 +513,10 @@ input:focus,select:focus{border-color:var(--green);box-shadow:0 0 0 3px rgba(26,
 <div class="toast" id="toast"></div>
 
 <script>
-// ═══════════════════════════════════════════════════════════════════
+// -------------------------------------------------------------------
 // MET VALUES FOR CALORIE AUTO-CALCULATION
-// calories = MET × weight_kg × duration_hours × intensity_multiplier
-// ═══════════════════════════════════════════════════════════════════
+// calories = MET - weight_kg - duration_hours - intensity_multiplier
+// -------------------------------------------------------------------
 const MET_VALUES = {
   'Gym — Weight Training': 3.5,
   'Gym — Hypertrophy (Moderate)': 4.5,
@@ -556,15 +556,109 @@ const MET_VALUES = {
   'Other': 5.0,
 };
 
-// ═══════════════════════════════════════════════════════════════════
+// -------------------------------------------------------------------
 // EXPANDED FOOD DATABASE
 // category: fresh | dairy | packed | drinks | snacks | restaurant | supplements
 // For packed foods: per100g:true means macros are per 100g
 // unit = display unit, serving = default serving size description
-// ═══════════════════════════════════════════════════════════════════
+// -------------------------------------------------------------------
 const FOODS = [
-  // ── FRESH PRODUCE & EGGS ──────────────────────────────────────
-  {name:'Egg (whole)',cal:78,p:6,c:0.6,f:5,unit:'egg',cat:'fresh'},
+  // -- TAMIL & KERALA BREAKFAST ---------------------------------
+  {name:'Appam / Aappam (1)',cal:85,p:2,c:17,f:1.5,unit:'appam',cat:'fresh'},
+  {name:'Appam with coconut milk (1 + 100ml)',cal:175,p:2.5,c:22,f:8,unit:'serving',cat:'fresh'},
+  {name:'Idli (1)',cal:58,p:2,c:12,f:0.4,unit:'idli',cat:'fresh'},
+  {name:'Idli (2 pieces)',cal:116,p:4,c:24,f:0.8,unit:'2 idlis',cat:'fresh'},
+  {name:'Dosa plain (1)',cal:168,p:4,c:30,f:3.7,unit:'dosa',cat:'fresh'},
+  {name:'Masala Dosa (1)',cal:320,p:7,c:50,f:9,unit:'dosa',cat:'fresh'},
+  {name:'Rava Dosa (1)',cal:220,p:5,c:35,f:7,unit:'dosa',cat:'fresh'},
+  {name:'Set Dosa (2 small)',cal:200,p:5,c:36,f:4,unit:'2 dosas',cat:'fresh'},
+  {name:'Neer Dosa (1)',cal:65,p:1.5,c:13,f:1,unit:'dosa',cat:'fresh'},
+  {name:'Pesarattu / Moong Dal Dosa (1)',cal:140,p:7,c:22,f:3,unit:'dosa',cat:'fresh'},
+  {name:'Uttapam (1)',cal:180,p:5,c:32,f:4,unit:'uttapam',cat:'fresh'},
+  {name:'Tomato Uttapam (1)',cal:195,p:5,c:34,f:5,unit:'uttapam',cat:'fresh'},
+  {name:'Idiyappam / Sevai (1 bundle)',cal:90,p:2,c:19,f:0.5,unit:'bundle',cat:'fresh'},
+  {name:'Idiyappam with coconut milk',cal:210,p:3,c:27,f:9,unit:'serving',cat:'fresh'},
+  {name:'Idiyappam with egg curry',cal:280,p:12,c:28,f:12,unit:'serving',cat:'fresh'},
+  {name:'Puttu (1 serving ~100g)',cal:180,p:4,c:38,f:1.5,unit:'serving',cat:'fresh'},
+  {name:'Puttu with kadala curry',cal:380,p:14,c:60,f:8,unit:'serving',cat:'fresh'},
+  {name:'Puttu with banana & sugar',cal:290,p:4,c:62,f:2,unit:'serving',cat:'fresh'},
+  {name:'Kadala Curry / Black Chana Curry (1 cup)',cal:185,p:10,c:28,f:5,unit:'cup',cat:'fresh'},
+  {name:'Pidi (rice dumpling, 4 pieces)',cal:220,p:4,c:46,f:1.5,unit:'4 pieces',cat:'fresh'},
+  {name:'Vellayappam (1)',cal:100,p:2.5,c:20,f:1.5,unit:'piece',cat:'fresh'},
+  {name:'Palappam (1)',cal:95,p:2,c:19,f:1.8,unit:'appam',cat:'fresh'},
+  {name:'Upma (1 cup)',cal:200,p:5,c:35,f:5,unit:'cup',cat:'fresh'},
+  {name:'Rava Upma (1 cup)',cal:210,p:5,c:36,f:6,unit:'cup',cat:'fresh'},
+  {name:'Poha / Aval Upma (1 cup)',cal:250,p:4,c:50,f:4,unit:'cup',cat:'fresh'},
+  {name:'Aval Pori / Puffed Rice Flakes (1 cup)',cal:110,p:2,c:24,f:0.5,unit:'cup',cat:'fresh'},
+  {name:'Pongal / Ven Pongal (1 cup)',cal:250,p:6,c:40,f:7,unit:'cup',cat:'fresh'},
+  {name:'Chakra Pongal / Sweet Pongal (1 cup)',cal:330,p:5,c:58,f:8,unit:'cup',cat:'fresh'},
+  {name:'Keerai Pongal (1 cup)',cal:230,p:7,c:38,f:6,unit:'cup',cat:'fresh'},
+  {name:'Kozhukattai / Modak (1)',cal:80,p:1.5,c:16,f:1.5,unit:'piece',cat:'fresh'},
+  {name:'Thengai Paal Kozhukattai (1)',cal:100,p:1.5,c:18,f:3,unit:'piece',cat:'fresh'},
+  {name:'Adai (1 thick dosa)',cal:180,p:8,c:28,f:5,unit:'adai',cat:'fresh'},
+  {name:'Adai with avial',cal:320,p:10,c:40,f:12,unit:'serving',cat:'fresh'},
+  {name:'Kanji / Rice Porridge (1 cup)',cal:100,p:2,c:22,f:0.3,unit:'cup',cat:'fresh'},
+  {name:'Ragi Kanji (1 cup)',cal:120,p:3.5,c:25,f:1,unit:'cup',cat:'fresh'},
+  {name:'Ragi Mudde (1 ball ~100g)',cal:155,p:3.7,c:33,f:0.7,unit:'mudde',cat:'fresh'},
+  {name:'Oats (1/2 cup dry)',cal:150,p:5,c:27,f:3,unit:'serving',cat:'fresh'},
+  {name:'Parotta (1 layer)',cal:265,p:5,c:38,f:10,unit:'parotta',cat:'fresh'},
+  {name:'Parotta with kurma',cal:480,p:12,c:62,f:18,unit:'serving',cat:'fresh'},
+  {name:'Parotta with chicken curry',cal:550,p:28,c:55,f:22,unit:'serving',cat:'fresh'},
+  {name:'Chapati (1)',cal:104,p:3.1,c:20,f:1.9,unit:'chapati',cat:'fresh'},
+  {name:'Roti (1 medium)',cal:120,p:3.5,c:22,f:2.5,unit:'roti',cat:'fresh'},
+  {name:'Paratha (1 plain)',cal:200,p:4,c:28,f:8,unit:'paratha',cat:'fresh'},
+
+  // -- TAMIL & KERALA RICE DISHES -------------------------------
+  {name:'Steamed Rice (1 cup cooked)',cal:206,p:4.3,c:45,f:0.4,unit:'cup',cat:'fresh'},
+  {name:'Boiled Rice / Matta Rice (1 cup)',cal:200,p:4,c:44,f:0.5,unit:'cup',cat:'fresh'},
+  {name:'Brown Rice (1 cup cooked)',cal:216,p:5,c:45,f:1.8,unit:'cup',cat:'fresh'},
+  {name:'Sambar Rice (1 plate)',cal:320,p:10,c:58,f:5,unit:'plate',cat:'fresh'},
+  {name:'Curd Rice (1 cup)',cal:230,p:6,c:38,f:5,unit:'cup',cat:'fresh'},
+  {name:'Lemon Rice (1 cup)',cal:280,p:5,c:52,f:7,unit:'cup',cat:'fresh'},
+  {name:'Tamarind Rice / Puliyodharai (1 cup)',cal:300,p:5,c:55,f:8,unit:'cup',cat:'fresh'},
+  {name:'Coconut Rice (1 cup)',cal:310,p:5,c:50,f:10,unit:'cup',cat:'fresh'},
+  {name:'Tomato Rice (1 cup)',cal:270,p:5,c:50,f:6,unit:'cup',cat:'fresh'},
+  {name:'Variety Rice / Mixed (1 cup)',cal:285,p:6,c:52,f:7,unit:'cup',cat:'fresh'},
+  {name:'Kerala Matta Rice (1 cup cooked)',cal:198,p:4,c:43,f:0.8,unit:'cup',cat:'fresh'},
+  {name:'Biriyani / Chicken Dum Biryani (1 plate)',cal:500,p:32,c:60,f:14,unit:'plate',cat:'fresh'},
+  {name:'Malabar Chicken Biryani (1 plate)',cal:520,p:33,c:62,f:15,unit:'plate',cat:'fresh'},
+  {name:'Veg Biryani (1 plate)',cal:380,p:10,c:65,f:10,unit:'plate',cat:'fresh'},
+  {name:'Ghee Rice (1 cup)',cal:350,p:5,c:52,f:13,unit:'cup',cat:'fresh'},
+  {name:'Nei Choru / Ghee Rice with dal (1 plate)',cal:480,p:14,c:70,f:16,unit:'plate',cat:'fresh'},
+  {name:'Kanji with fish curry',cal:280,p:18,c:28,f:10,unit:'plate',cat:'fresh'},
+
+  // -- TAMIL & KERALA CURRIES & GRAVIES -------------------------
+  {name:'Sambar (1 cup)',cal:90,p:4,c:16,f:1.5,unit:'cup',cat:'fresh'},
+  {name:'Rasam (1 cup)',cal:35,p:1.5,c:6,f:0.5,unit:'cup',cat:'fresh'},
+  {name:'Avial (1 cup)',cal:160,p:3,c:18,f:8,unit:'cup',cat:'fresh'},
+  {name:'Thoraan / Thoran (stir-fry veg, 1 cup)',cal:120,p:3,c:14,f:6,unit:'cup',cat:'fresh'},
+  {name:'Beans Thoran (1 cup)',cal:110,p:3.5,c:12,f:5.5,unit:'cup',cat:'fresh'},
+  {name:'Cabbage Thoran (1 cup)',cal:100,p:2.5,c:10,f:5,unit:'cup',cat:'fresh'},
+  {name:'Kootu / Veg Kootu (1 cup)',cal:150,p:5,c:20,f:5,unit:'cup',cat:'fresh'},
+  {name:'Olan (ash gourd, 1 cup)',cal:100,p:2,c:12,f:5,unit:'cup',cat:'fresh'},
+  {name:'Kalan / Curd Curry (1 cup)',cal:140,p:3,c:15,f:7,unit:'cup',cat:'fresh'},
+  {name:'Erissery / Pumpkin Curry (1 cup)',cal:160,p:4,c:20,f:7,unit:'cup',cat:'fresh'},
+  {name:'Pulissery / Moru Curry (1 cup)',cal:80,p:2.5,c:8,f:4,unit:'cup',cat:'fresh'},
+  {name:'Pachadi / Raita (1 cup)',cal:70,p:2,c:8,f:3,unit:'cup',cat:'fresh'},
+  {name:'Mor Kuzhambu (1 cup)',cal:75,p:2.5,c:7,f:3.5,unit:'cup',cat:'fresh'},
+  {name:'Poriyal (dry veg, 1 cup)',cal:115,p:3,c:14,f:5,unit:'cup',cat:'fresh'},
+  {name:'Vathakuzhambu (1 cup)',cal:110,p:2,c:14,f:5,unit:'cup',cat:'fresh'},
+  {name:'Kolumbu / Kuzhambu (1 cup)',cal:120,p:3,c:15,f:5,unit:'cup',cat:'fresh'},
+  {name:'Paruppu / Dal (1 cup)',cal:150,p:9,c:24,f:2,unit:'cup',cat:'fresh'},
+  {name:'Fish Curry / Meen Kuzhambu (100g)',cal:120,p:14,c:5,f:5,unit:'100g',per100:true,cat:'fresh',hint:'1 serving ≈ 150-200g'},
+  {name:'Prawn / Chemmeen Curry (100g)',cal:110,p:13,c:5,f:4.5,unit:'100g',per100:true,cat:'fresh',hint:'1 serving ≈ 150g'},
+  {name:'Chicken Curry (100g)',cal:155,p:15,c:5,f:8,unit:'100g',per100:true,cat:'fresh',hint:'1 serving ≈ 150-200g'},
+  {name:'Egg Curry (1 egg + gravy)',cal:160,p:9,c:6,f:11,unit:'serving',cat:'fresh'},
+  {name:'Mutton Curry (100g)',cal:195,p:20,c:4,f:11,unit:'100g',per100:true,cat:'fresh',hint:'1 serving ≈ 150g'},
+  {name:'Crab Curry / Nandu Curry (100g)',cal:100,p:16,c:3,f:3,unit:'100g',per100:true,cat:'fresh'},
+  {name:'Meen Pollichathu (1 serving)',cal:280,p:28,c:5,f:16,unit:'serving',cat:'fresh'},
+
+  // -- KERALA SEAFOOD (common items) ----------------------------
+  {name:'Karimeen / Pearl Spot (100g)',cal:95,p:19,c:0,f:2,unit:'100g',per100:true,cat:'fresh'},
+  {name:'Netholi / Anchovies (100g)',cal:131,p:20,c:0,f:5,unit:'100g',per100:true,cat:'fresh'},
+  {name:'Seer Fish / Vanjaram (100g)',cal:110,p:21,c:0,f:3,unit:'100g',per100:true,cat:'fresh'},
+  {name:'Sardine / Mathi (100g)',cal:149,p:21,c:0,f:7,unit:'100g',per100:true,cat:'fresh'},
+  {name:'Prawns / Chemmeen (100g)',cal:85,p:20,c:0,f:0.9,unit:'100g',per100:true,cat:'fresh',tags:'prawns shrimp chemmeen'},
   {name:'Egg whites (100g)',cal:52,p:11,c:0.7,f:0.2,unit:'100g',cat:'fresh'},
   {name:'Banana',cal:105,p:1.3,c:27,f:0.4,unit:'banana',cat:'fresh'},
   {name:'Apple',cal:95,p:0.5,c:25,f:0.3,unit:'apple',cat:'fresh'},
@@ -595,7 +689,7 @@ const FOODS = [
   {name:'Potato boiled (1 medium)',cal:130,p:3,c:30,f:0.1,unit:'potato',cat:'fresh'},
   {name:'Sweet potato (1 medium)',cal:103,p:2.3,c:24,f:0.1,unit:'potato',cat:'fresh'},
 
-  // ── GRAINS & STAPLES ─────────────────────────────────────────
+  // -- GRAINS & STAPLES -----------------------------------------
   {name:'Rice cooked (1 cup)',cal:206,p:4.3,c:45,f:0.4,unit:'cup',cat:'fresh'},
   {name:'Brown rice cooked (1 cup)',cal:216,p:5,c:45,f:1.8,unit:'cup',cat:'fresh'},
   {name:'Roti (1 medium)',cal:120,p:3.5,c:22,f:2.5,unit:'roti',cat:'fresh'},
@@ -629,7 +723,7 @@ const FOODS = [
   {name:'Honey (1 tbsp)',cal:64,p:0.1,c:17,f:0,unit:'tbsp',cat:'fresh'},
   {name:'Sugar (1 tsp)',cal:16,p:0,c:4.2,f:0,unit:'tsp',cat:'fresh'},
 
-  // ── DAIRY — Amul & others ─────────────────────────────────────
+  // -- DAIRY - Amul & others -------------------------------------
   {name:'Amul Toned Milk Tetra Pack',cal:58,p:3.1,c:4.8,f:3,unit:'100ml',per100:true,cat:'dairy',brand:'Amul',hint:'Enter ml consumed'},
   {name:'Amul Full Cream Milk',cal:67,p:3.2,c:4.8,f:4,unit:'100ml',per100:true,cat:'dairy',brand:'Amul',hint:'Enter ml consumed'},
   {name:'Amul Slim & Trim Milk (Skimmed)',cal:35,p:3.5,c:5,f:0.2,unit:'100ml',per100:true,cat:'dairy',brand:'Amul',hint:'Enter ml consumed'},
@@ -654,13 +748,13 @@ const FOODS = [
   {name:'Epigamia Greek Yogurt Plain (100g)',cal:61,p:5.5,c:5,f:1.8,unit:'100g',per100:true,cat:'dairy',brand:'Epigamia',hint:'Enter grams consumed'},
   {name:'Epigamia Greek Yogurt with Honey (100g)',cal:98,p:5,c:13,f:2.2,unit:'100g',per100:true,cat:'dairy',brand:'Epigamia',hint:'Enter grams consumed'},
 
-  // ── PACKED FOODS ──────────────────────────────────────────────
+  // -- PACKED FOODS ----------------------------------------------
   {name:'Maggi Masala Noodles (1 pack 70g)',cal:315,p:8,c:48,f:10,unit:'pack (70g)',cat:'packed',brand:'Maggi'},
   {name:'Sunfeast Yippee! Noodles (1 pack 70g)',cal:305,p:7,c:47,f:10,unit:'pack (70g)',cat:'packed',brand:'Sunfeast'},
   {name:'Top Ramen Masala (1 pack 70g)',cal:310,p:7.5,c:48,f:10,unit:'pack (70g)',cat:'packed',brand:'Top Ramen'},
-  {name:'Kellogg\'s Corn Flakes (100g)',cal:357,p:7.5,c:79,f:0.9,unit:'100g',per100:true,cat:'packed',brand:'Kellogg\'s',hint:'1 serving ≈ 30g'},
-  {name:'Kellogg\'s Special K (100g)',cal:379,p:15,c:73,f:1.2,unit:'100g',per100:true,cat:'packed',brand:'Kellogg\'s',hint:'1 serving ≈ 30g'},
-  {name:'Kellogg\'s Muesli (100g)',cal:370,p:9,c:64,f:8,unit:'100g',per100:true,cat:'packed',brand:'Kellogg\'s',hint:'1 serving ≈ 45g'},
+  {name:'Kelloggs Corn Flakes (100g)',cal:357,p:7.5,c:79,f:0.9,unit:'100g',per100:true,cat:'packed',brand:'Kelloggs',hint:'1 serving ≈ 30g'},
+  {name:'Kelloggs Special K (100g)',cal:379,p:15,c:73,f:1.2,unit:'100g',per100:true,cat:'packed',brand:'Kelloggs',hint:'1 serving ≈ 30g'},
+  {name:'Kelloggs Muesli (100g)',cal:370,p:9,c:64,f:8,unit:'100g',per100:true,cat:'packed',brand:'Kelloggs',hint:'1 serving ≈ 45g'},
   {name:'Quaker Oats (100g)',cal:389,p:13,c:66,f:7,unit:'100g',per100:true,cat:'packed',brand:'Quaker',hint:'1 serving ≈ 40g'},
   {name:'Saffola Oats (100g)',cal:380,p:13,c:63,f:7.5,unit:'100g',per100:true,cat:'packed',brand:'Saffola',hint:'1 serving ≈ 40g'},
   {name:'MTR Poha Mix (1 pack 180g)',cal:268,p:7,c:48,f:5.5,unit:'pack',cat:'packed',brand:'MTR'},
@@ -682,7 +776,7 @@ const FOODS = [
   {name:'Sundrop Peanut Butter (100g)',cal:585,p:25,c:18,f:48,unit:'100g',per100:true,cat:'packed',brand:'Sundrop',hint:'1 tbsp ≈ 16g'},
   {name:'Cornitos Nachos (100g)',cal:482,p:7,c:66,f:21,unit:'100g',per100:true,cat:'packed',brand:'Cornitos',hint:'Enter grams consumed'},
 
-  // ── DRINKS ───────────────────────────────────────────────────
+  // -- DRINKS ---------------------------------------------------
   {name:'Water',cal:0,p:0,c:0,f:0,unit:'any amount',cat:'drinks'},
   {name:'Coffee black (1 cup)',cal:2,p:0.3,c:0,f:0,unit:'cup',cat:'drinks'},
   {name:'Tea with milk (1 cup)',cal:40,p:1.5,c:5,f:1.5,unit:'cup',cat:'drinks'},
@@ -722,7 +816,7 @@ const FOODS = [
   {name:'Whisky (30ml peg)',cal:70,p:0,c:0,f:0,unit:'30ml',cat:'drinks'},
   {name:'Wine red (150ml glass)',cal:125,p:0.1,c:4,f:0,unit:'150ml',cat:'drinks'},
 
-  // ── SNACKS & MUNCHIES ─────────────────────────────────────────
+  // -- SNACKS & MUNCHIES -----------------------------------------
   {name:'Lays Classic Salted (100g)',cal:536,p:6.7,c:55,f:32,unit:'100g',per100:true,cat:'snacks',brand:'Lays',hint:'Small pack ≈ 26g, large ≈ 73g'},
   {name:'Lays American Style Cream & Onion (100g)',cal:530,p:6.5,c:56,f:31,unit:'100g',per100:true,cat:'snacks',brand:'Lays',hint:'Small pack ≈ 26g, large ≈ 73g'},
   {name:'Kurkure Masala Munch (100g)',cal:495,p:5.5,c:68,f:22,unit:'100g',per100:true,cat:'snacks',brand:'Kurkure',hint:'Regular pack ≈ 90g'},
@@ -755,18 +849,18 @@ const FOODS = [
   {name:'Nankhatai (1 biscuit)',cal:80,p:1.2,c:10,f:4,unit:'biscuit',cat:'snacks'},
   {name:'Murmura / Puffed Rice (100g)',cal:325,p:8,c:72,f:0.5,unit:'100g',per100:true,cat:'snacks',hint:'1 cup ≈ 15g'},
 
-  // ── RESTAURANT / CHAINS ───────────────────────────────────────
-  {name:'McD McAloo Tikki Burger',cal:300,p:8,c:45,f:10,unit:'burger',cat:'restaurant',brand:'McDonald\'s'},
-  {name:'McD Chicken Maharaja Mac',cal:543,p:30,c:46,f:26,unit:'burger',cat:'restaurant',brand:'McDonald\'s'},
-  {name:'McD McChicken Burger',cal:393,p:17,c:41,f:18,unit:'burger',cat:'restaurant',brand:'McDonald\'s'},
-  {name:'McD French Fries (medium)',cal:320,p:4.5,c:43,f:15,unit:'medium',cat:'restaurant',brand:'McDonald\'s'},
-  {name:'McD French Fries (large)',cal:490,p:7,c:66,f:23,unit:'large',cat:'restaurant',brand:'McDonald\'s'},
+  // -- RESTAURANT / CHAINS ---------------------------------------
+  {name:'McD McAloo Tikki Burger',cal:300,p:8,c:45,f:10,unit:'burger',cat:'restaurant',brand:'McDonalds'},
+  {name:'McD Chicken Maharaja Mac',cal:543,p:30,c:46,f:26,unit:'burger',cat:'restaurant',brand:'McDonalds'},
+  {name:'McD McChicken Burger',cal:393,p:17,c:41,f:18,unit:'burger',cat:'restaurant',brand:'McDonalds'},
+  {name:'McD French Fries (medium)',cal:320,p:4.5,c:43,f:15,unit:'medium',cat:'restaurant',brand:'McDonalds'},
+  {name:'McD French Fries (large)',cal:490,p:7,c:66,f:23,unit:'large',cat:'restaurant',brand:'McDonalds'},
   {name:'KFC Chicken Popcorn (medium)',cal:361,p:21,c:29,f:18,unit:'medium box',cat:'restaurant',brand:'KFC'},
   {name:'KFC Zinger Burger',cal:450,p:24,c:42,f:21,unit:'burger',cat:'restaurant',brand:'KFC'},
   {name:'KFC Hot & Crispy Chicken (1 pc)',cal:240,p:16,c:14,f:13,unit:'piece',cat:'restaurant',brand:'KFC'},
-  {name:'Dominos Margherita Pizza (1 slice medium)',cal:190,p:8,c:27,f:6,unit:'slice',cat:'restaurant',brand:'Domino\'s'},
-  {name:'Dominos Peppy Paneer Pizza (1 slice medium)',cal:210,p:9,c:28,f:8,unit:'slice',cat:'restaurant',brand:'Domino\'s'},
-  {name:'Dominos Chicken Tikka Pizza (1 slice medium)',cal:220,p:12,c:27,f:8,unit:'slice',cat:'restaurant',brand:'Domino\'s'},
+  {name:'Dominos Margherita Pizza (1 slice medium)',cal:190,p:8,c:27,f:6,unit:'slice',cat:'restaurant',brand:'Dominos'},
+  {name:'Dominos Peppy Paneer Pizza (1 slice medium)',cal:210,p:9,c:28,f:8,unit:'slice',cat:'restaurant',brand:'Dominos'},
+  {name:'Dominos Chicken Tikka Pizza (1 slice medium)',cal:220,p:12,c:27,f:8,unit:'slice',cat:'restaurant',brand:'Dominos'},
   {name:'Pizza Hut Veggie Supreme (1 slice medium)',cal:200,p:8,c:27,f:7.5,unit:'slice',cat:'restaurant',brand:'Pizza Hut'},
   {name:'Pizza Hut Chicken Supreme (1 slice medium)',cal:230,p:12,c:27,f:9,unit:'slice',cat:'restaurant',brand:'Pizza Hut'},
   {name:'Subway Veg Delite 6 inch',cal:230,p:8,c:42,f:4,unit:'6 inch sub',cat:'restaurant',brand:'Subway'},
@@ -787,7 +881,7 @@ const FOODS = [
   {name:'Jalebi (100g)',cal:357,p:3,c:68,f:9,unit:'100g',per100:true,cat:'restaurant',hint:'1 small jalebi ≈ 30g'},
   {name:'Halwa Sooji (100g)',cal:297,p:4,c:46,f:11,unit:'100g',per100:true,cat:'restaurant',hint:'Enter grams consumed'},
 
-  // ── SUPPLEMENTS ───────────────────────────────────────────────
+  // -- SUPPLEMENTS -----------------------------------------------
   {name:'Whey Protein ON Gold Standard (1 scoop ~30g)',cal:120,p:24,c:3,f:1.5,unit:'scoop',cat:'supplements',brand:'ON'},
   {name:'Whey Protein MuscleBlaze (1 scoop ~33g)',cal:126,p:25,c:3.5,f:1.8,unit:'scoop',cat:'supplements',brand:'MuscleBlaze'},
   {name:'Whey Protein Dymatize ISO100 (1 scoop 29g)',cal:110,p:25,c:1,f:0.5,unit:'scoop',cat:'supplements',brand:'Dymatize'},
@@ -798,6 +892,187 @@ const FOODS = [
   {name:'Casein Protein (1 scoop 33g)',cal:115,p:24,c:4,f:1,unit:'scoop',cat:'supplements'},
   {name:'Multivitamin tablet',cal:0,p:0,c:0,f:0,unit:'tablet',cat:'supplements'},
   {name:'Fish Oil (1 capsule)',cal:10,p:0,c:0,f:1,unit:'capsule',cat:'supplements'},
+
+  // -- TAMIL BREAKFAST & TIFFIN ----------------------------------
+  {name:'Appam (1)',cal:80,p:2,c:16,f:1,unit:'appam',cat:'fresh',tags:'appam'},
+  {name:'Appam with coconut milk (1 + 100ml)',cal:155,p:3,c:22,f:6,unit:'appam+milk',cat:'fresh',tags:'appam'},
+  {name:'Appam with egg (1 appam + 1 egg)',cal:158,p:8,c:16,f:6.5,unit:'serving',cat:'fresh',tags:'appam egg'},
+  {name:'Idiyappam (1)',cal:78,p:1.8,c:16,f:0.5,unit:'idiyappam',cat:'fresh',tags:'idiyappam string hoppers'},
+  {name:'Idiyappam with coconut milk (2 + 100ml)',cal:225,p:4.5,c:36,f:7,unit:'serving',cat:'fresh',tags:'idiyappam string hoppers'},
+  {name:'Idiyappam with egg curry (2 + curry)',cal:320,p:15,c:36,f:12,unit:'serving',cat:'fresh',tags:'idiyappam'},
+  {name:'Pongal (ven, 1 cup)',cal:250,p:6,c:40,f:7,unit:'cup',cat:'fresh',tags:'pongal khichdi'},
+  {name:'Pongal (sweet / sakkarai, 1 cup)',cal:310,p:5,c:58,f:8,unit:'cup',cat:'fresh',tags:'sakkarai pongal sweet'},
+  {name:'Kichadi (1 cup)',cal:180,p:5,c:30,f:5,unit:'cup',cat:'fresh',tags:'kichadi khichdi'},
+  {name:'Pesarattu (1)',cal:90,p:5,c:14,f:1.5,unit:'pesarattu',cat:'fresh',tags:'moong dal dosa green'},
+  {name:'Adai (1)',cal:130,p:7,c:20,f:3,unit:'adai',cat:'fresh',tags:'adai dosa lentil'},
+  {name:'Adai with avial (1 adai + 100g avial)',cal:245,p:9,c:28,f:10,unit:'serving',cat:'fresh',tags:'adai avial'},
+  {name:'Puttu (100g)',cal:195,p:4,c:40,f:1.5,unit:'100g',per100:true,cat:'fresh',hint:'1 puttu ≈ 100-120g',tags:'puttu kerala'},
+  {name:'Puttu with kadala curry (100g puttu + curry)',cal:340,p:14,c:56,f:8,unit:'serving',cat:'fresh',tags:'puttu kadala kerala'},
+  {name:'Puttu with banana & sugar',cal:290,p:4,c:60,f:2,unit:'serving',cat:'fresh',tags:'puttu banana kerala'},
+  {name:'Idli (1)',cal:58,p:2,c:12,f:0.4,unit:'idli',cat:'fresh',tags:'idli'},
+  {name:'Mini idli (1)',cal:28,p:1,c:6,f:0.2,unit:'mini idli',cat:'fresh',tags:'mini idli'},
+  {name:'Idli with sambar (2 idli + 1 cup sambar)',cal:235,p:12,c:40,f:3,unit:'serving',cat:'fresh',tags:'idli sambar'},
+  {name:'Medu Vada (1)',cal:145,p:5,c:18,f:6,unit:'vada',cat:'fresh',tags:'medu vada urad dal'},
+  {name:'Sambar Vada (1 vada soaked)',cal:180,p:6,c:22,f:7,unit:'serving',cat:'fresh',tags:'sambar vada'},
+  {name:'Thayir Vada / Dahi Vada (1)',cal:170,p:6,c:22,f:6,unit:'serving',cat:'fresh',tags:'thayir vada curd dahi'},
+  {name:'Dosa plain (1 medium)',cal:168,p:4,c:30,f:3.7,unit:'dosa',cat:'fresh',tags:'dosa'},
+  {name:'Ghee Roast Dosa (1)',cal:280,p:5,c:35,f:13,unit:'dosa',cat:'fresh',tags:'ghee roast dosa'},
+  {name:'Masala Dosa (1)',cal:320,p:7,c:50,f:9,unit:'dosa',cat:'fresh',tags:'masala dosa'},
+  {name:'Onion Rava Dosa (1)',cal:220,p:5,c:35,f:8,unit:'dosa',cat:'fresh',tags:'rava dosa onion'},
+  {name:'Set Dosa (2 pieces)',cal:200,p:5,c:36,f:4.5,unit:'2 pieces',cat:'fresh',tags:'set dosa soft'},
+  {name:'Uthappam (1)',cal:180,p:5,c:32,f:4,unit:'uthappam',cat:'fresh',tags:'uthappam uttapam onion'},
+  {name:'Sevai / Rice Noodles (1 cup cooked)',cal:210,p:4,c:45,f:1,unit:'cup',cat:'fresh',tags:'sevai rice noodles idiyappam'},
+  {name:'Upma (1 cup)',cal:200,p:5,c:35,f:5,unit:'cup',cat:'fresh',tags:'upma'},
+  {name:'Rava Upma (1 cup)',cal:210,p:5,c:36,f:6,unit:'cup',cat:'fresh',tags:'rava upma sooji'},
+  {name:'Poha (1 cup)',cal:270,p:4,c:54,f:5,unit:'cup',cat:'fresh',tags:'poha aval beaten rice'},
+  {name:'Aval / Beaten Rice Upma (1 cup)',cal:220,p:4,c:44,f:3.5,unit:'cup',cat:'fresh',tags:'aval poha beaten rice upma'},
+
+  // -- TAMIL/KERALA RICE DISHES ----------------------------------
+  {name:'Sambar Rice (1 cup)',cal:300,p:10,c:55,f:5,unit:'cup',cat:'fresh',tags:'sambar rice'},
+  {name:'Curd Rice / Thayir Sadam (1 cup)',cal:220,p:7,c:38,f:4,unit:'cup',cat:'fresh',tags:'curd rice thayir sadam'},
+  {name:'Lemon Rice (1 cup)',cal:260,p:5,c:48,f:6,unit:'cup',cat:'fresh',tags:'lemon rice elumichai sadam'},
+  {name:'Tamarind Rice / Puliyodarai (1 cup)',cal:280,p:5,c:50,f:7,unit:'cup',cat:'fresh',tags:'tamarind rice puliyodarai puliyogare'},
+  {name:'Coconut Rice (1 cup)',cal:310,p:5,c:50,f:10,unit:'cup',cat:'fresh',tags:'coconut rice thengai sadam'},
+  {name:'Tomato Rice (1 cup)',cal:270,p:5,c:48,f:7,unit:'cup',cat:'fresh',tags:'tomato rice thakkali sadam'},
+  {name:'Peas Pulao (1 cup)',cal:290,p:8,c:50,f:6,unit:'cup',cat:'fresh',tags:'peas pulao'},
+  {name:'Ghee Rice (1 cup)',cal:340,p:5,c:50,f:13,unit:'cup',cat:'fresh',tags:'ghee rice nei sadam'},
+  {name:'Chicken Biryani Tamil style (1 plate)',cal:480,p:32,c:58,f:14,unit:'plate',cat:'fresh',tags:'biryani chicken tamil'},
+  {name:'Mutton Biryani (1 plate)',cal:520,p:30,c:58,f:18,unit:'plate',cat:'fresh',tags:'mutton biryani'},
+  {name:'Ambur Biryani (1 plate)',cal:490,p:30,c:60,f:14,unit:'plate',cat:'fresh',tags:'ambur biryani'},
+  {name:'Meen Biryani / Fish Biryani (1 plate)',cal:430,p:28,c:58,f:12,unit:'plate',cat:'fresh',tags:'fish biryani meen'},
+  {name:'Prawn Biryani (1 plate)',cal:440,p:28,c:58,f:12,unit:'plate',cat:'fresh',tags:'prawn biryani'},
+  {name:'Veg Biryani (1 plate)',cal:380,p:10,c:65,f:10,unit:'plate',cat:'fresh',tags:'veg biryani'},
+  {name:'Parottu / Kerala Parotta (1)',cal:210,p:5,c:32,f:7,unit:'parotta',cat:'fresh',tags:'parotta parotta kerala layered'},
+  {name:'Parotta with egg curry (2 + curry)',cal:550,p:22,c:64,f:22,unit:'serving',cat:'fresh',tags:'parotta egg curry'},
+  {name:'Parotta with chicken salna (2 + salna)',cal:600,p:30,c:64,f:24,unit:'serving',cat:'fresh',tags:'parotta chicken salna'},
+  {name:'Veechu Parotta (1)',cal:200,p:4.5,c:30,f:7,unit:'parotta',cat:'fresh',tags:'veechu parotta'},
+
+  // -- TAMIL/KERALA CURRIES & GRAVIES ---------------------------
+  {name:'Chicken Curry Tamil (100g)',cal:165,p:18,c:5,f:8,unit:'100g',per100:true,cat:'fresh',hint:'1 serving ≈ 150-200g',tags:'chicken curry tamil'},
+  {name:'Chicken Chettinad (100g)',cal:180,p:19,c:5,f:10,unit:'100g',per100:true,cat:'fresh',hint:'1 serving ≈ 150-200g',tags:'chettinad chicken'},
+  {name:'Chicken 65 (100g)',cal:230,p:20,c:10,f:13,unit:'100g',per100:true,cat:'fresh',hint:'1 serving ≈ 100-150g',tags:'chicken 65'},
+  {name:'Chicken Fry / Varuval (100g)',cal:220,p:22,c:4,f:13,unit:'100g',per100:true,cat:'fresh',hint:'1 serving ≈ 100-150g',tags:'chicken varuval fry'},
+  {name:'Mutton Kuzhambu (100g)',cal:190,p:18,c:5,f:11,unit:'100g',per100:true,cat:'fresh',hint:'1 serving ≈ 150-200g',tags:'mutton kuzhambu curry'},
+  {name:'Mutton Chukka Varuval (100g)',cal:200,p:20,c:3,f:12,unit:'100g',per100:true,cat:'fresh',hint:'1 serving ≈ 100-150g',tags:'mutton chukka dry'},
+  {name:'Fish Curry / Meen Kuzhambu (100g)',cal:120,p:14,c:6,f:5,unit:'100g',per100:true,cat:'fresh',hint:'1 serving ≈ 150-200g',tags:'meen kuzhambu fish curry'},
+  {name:'Fish Fry / Meen Varuval (1 piece 100g)',cal:180,p:20,c:5,f:9,unit:'100g',per100:true,cat:'fresh',tags:'meen varuval fish fry'},
+  {name:'Prawn Masala (100g)',cal:140,p:18,c:5,f:6,unit:'100g',per100:true,cat:'fresh',hint:'1 serving ≈ 150-200g',tags:'prawn masala eral'},
+  {name:'Prawn Fry (100g)',cal:160,p:19,c:5,f:7,unit:'100g',per100:true,cat:'fresh',tags:'prawn fry eral varuval'},
+  {name:'Egg Curry Tamil (1 egg + gravy)',cal:165,p:9,c:7,f:11,unit:'egg+gravy',cat:'fresh',tags:'egg curry mutta kuzhambu'},
+  {name:'Egg Bhurji / Mutta Podimas (2 eggs)',cal:180,p:13,c:3,f:13,unit:'serving',cat:'fresh',tags:'egg bhurji podimas scrambled'},
+  {name:'Poriyal (stir-fry veg, 100g)',cal:80,p:2,c:10,f:3.5,unit:'100g',per100:true,cat:'fresh',hint:'Beans, carrot, cabbage etc.',tags:'poriyal stir fry vegetable'},
+  {name:'Kootu (100g)',cal:110,p:5,c:14,f:4,unit:'100g',per100:true,cat:'fresh',hint:'Vegetable + lentil dish',tags:'kootu dal vegetable'},
+  {name:'Rasam (1 cup)',cal:45,p:2,c:8,f:1,unit:'cup',cat:'fresh',tags:'rasam pepper water'},
+  {name:'Sambar (1 cup)',cal:90,p:4,c:16,f:1.5,unit:'cup',cat:'fresh',tags:'sambar'},
+  {name:'Avial (100g)',cal:110,p:2.5,c:12,f:6,unit:'100g',per100:true,cat:'fresh',hint:'Mixed veg in coconut+curd',tags:'avial kerala'},
+  {name:'Olan (100g)',cal:85,p:2,c:10,f:4,unit:'100g',per100:true,cat:'fresh',tags:'olan kerala pumpkin cowpeas'},
+  {name:'Thoran (100g)',cal:90,p:3,c:10,f:4.5,unit:'100g',per100:true,cat:'fresh',hint:'Kerala stir-fry with coconut',tags:'thoran kerala stir fry coconut'},
+  {name:'Erissery (100g)',cal:130,p:4,c:15,f:6,unit:'100g',per100:true,cat:'fresh',tags:'erissery kerala pumpkin'},
+  {name:'Kalan (100g)',cal:145,p:3,c:14,f:9,unit:'100g',per100:true,cat:'fresh',tags:'kalan kerala yam curd coconut'},
+  {name:'Kadala Curry (1 cup)',cal:220,p:12,c:30,f:7,unit:'cup',cat:'fresh',tags:'kadala curry black chickpea kerala'},
+  {name:'Paya / Leg Soup (1 cup)',cal:130,p:16,c:4,f:6,unit:'cup',cat:'fresh',tags:'paya leg soup mutton goat'},
+  {name:'Crab Masala (100g)',cal:110,p:16,c:4,f:4,unit:'100g',per100:true,cat:'fresh',tags:'crab masala nandu'},
+  {name:'Nethili Fry / Anchovies (100g)',cal:190,p:20,c:5,f:10,unit:'100g',per100:true,cat:'fresh',tags:'nethili anchovies small fish fry'},
+  {name:'Mackerel / Ayala Fry (1 fish ≈ 120g)',cal:215,p:22,c:4,f:13,unit:'fish',cat:'fresh',tags:'mackerel ayala bangda fry'},
+  {name:'Sardine / Mathi Fry (100g)',cal:185,p:19,c:3,f:11,unit:'100g',per100:true,cat:'fresh',tags:'sardine mathi fry'},
+  {name:'Kerala Beef Fry / Beef Ularthiyathu (100g)',cal:220,p:24,c:4,f:12,unit:'100g',per100:true,cat:'fresh',tags:'beef fry ularthiyathu kerala'},
+  {name:'Beef Curry Kerala (100g)',cal:190,p:22,c:5,f:10,unit:'100g',per100:true,cat:'fresh',tags:'beef curry kerala'},
+  {name:'Chicken Stew Kerala (100g)',cal:130,p:14,c:6,f:6,unit:'100g',per100:true,cat:'fresh',hint:'Served with appam/idiyappam',tags:'chicken stew kerala appam'},
+  {name:'Ishtu / Vegetable Stew Kerala (100g)',cal:100,p:3,c:10,f:5.5,unit:'100g',per100:true,cat:'fresh',tags:'ishtu vegetable stew kerala'},
+  {name:'Prawn Moilee (100g)',cal:120,p:15,c:5,f:5,unit:'100g',per100:true,cat:'fresh',tags:'prawn moilee kerala coconut milk'},
+  {name:'Fish Moilee (100g)',cal:115,p:14,c:4,f:5,unit:'100g',per100:true,cat:'fresh',tags:'fish moilee kerala coconut milk'},
+  {name:'Parippu / Dal Kerala (100g)',cal:115,p:6,c:16,f:3.5,unit:'100g',per100:true,cat:'fresh',hint:'Moong dal with coconut',tags:'parippu dal kerala moong'},
+  {name:'Sambar Tamil (1 cup)',cal:90,p:4,c:16,f:1.5,unit:'cup',cat:'fresh',tags:'sambar tiffin'},
+  {name:'Gothsu (100g)',cal:75,p:1.5,c:12,f:2.5,unit:'100g',per100:true,cat:'fresh',tags:'gothsu brinjal tamarind'},
+  {name:'Mor Kuzhambu (1 cup)',cal:80,p:3,c:8,f:4,unit:'cup',cat:'fresh',tags:'mor kuzhambu buttermilk curry'},
+
+  // -- KERALA SPECIALTIES ----------------------------------------
+  {name:'Kerala Sadya (full banana leaf)',cal:900,p:25,c:140,f:28,unit:'full sadya',cat:'fresh',tags:'sadya onam kerala feast banana leaf'},
+  {name:'Karimeen Pollichathu (1 fish ≈ 150g)',cal:270,p:28,c:8,f:15,unit:'serving',cat:'fresh',tags:'karimeen pearl spot fish kerala'},
+  {name:'Appam + Stew (2 appam + 150g stew)',cal:330,p:17,c:38,f:13,unit:'serving',cat:'fresh',tags:'appam stew kerala'},
+  {name:'Porotta + Beef (2 porotta + 150g beef)',cal:720,p:36,c:68,f:32,unit:'serving',cat:'fresh',tags:'porotta beef kerala'},
+  {name:'Neyyappam (1)',cal:120,p:2,c:20,f:4,unit:'neyyappam',cat:'fresh',tags:'neyyappam sweet rice kerala'},
+  {name:'Unniyappam (1)',cal:95,p:1.5,c:17,f:3,unit:'unniyappam',cat:'fresh',tags:'unniyappam sweet kerala'},
+  {name:'Ada Pradhaman (100g)',cal:185,p:3,c:35,f:5,unit:'100g',per100:true,cat:'fresh',tags:'ada pradhaman payasam kheer kerala onam'},
+  {name:'Payasam / Kheer (100g)',cal:160,p:4,c:28,f:4.5,unit:'100g',per100:true,cat:'fresh',tags:'payasam kheer sweet dessert'},
+  {name:'Pazham Pori / Banana Fritter (1)',cal:130,p:1.5,c:22,f:4.5,unit:'piece',cat:'fresh',tags:'pazham pori banana fritter kerala'},
+  {name:'Chakka Varattiyathu / Jackfruit Halwa (100g)',cal:220,p:2,c:45,f:4,unit:'100g',per100:true,cat:'fresh',tags:'jackfruit halwa chakka kerala'},
+  {name:'Kozhukatta (1)',cal:80,p:1.5,c:16,f:1,unit:'kozhukatta',cat:'fresh',tags:'kozhukatta rice dumpling kerala'},
+  {name:'Pathiri (1)',cal:85,p:2,c:18,f:0.5,unit:'pathiri',cat:'fresh',tags:'pathiri rice roti kerala malabar'},
+  {name:'Malabar Biryani / Thalassery Biryani (1 plate)',cal:510,p:32,c:62,f:15,unit:'plate',cat:'fresh',tags:'thalassery malabar biryani kerala'},
+  {name:'Kallumakkaya / Mussels Fry (100g)',cal:130,p:18,c:4,f:5,unit:'100g',per100:true,cat:'fresh',tags:'mussels kallumakkaya seafood kerala'},
+
+  // -- TAMIL SNACKS & STREET FOOD --------------------------------
+  {name:'Murukku (100g)',cal:510,p:9,c:65,f:24,unit:'100g',per100:true,cat:'snacks',hint:'1 medium murukku ≈ 20g',tags:'murukku chakli'},
+  {name:'Thattai (100g)',cal:490,p:9,c:66,f:21,unit:'100g',per100:true,cat:'snacks',hint:'1 thattai ≈ 15g',tags:'thattai rice cracker'},
+  {name:'Seedai (100g)',cal:480,p:8,c:68,f:19,unit:'100g',per100:true,cat:'snacks',hint:'Sweet or salt',tags:'seedai sweet salt'},
+  {name:'Mixture (Tamil style, 100g)',cal:510,p:11,c:58,f:27,unit:'100g',per100:true,cat:'snacks',tags:'mixture snack'},
+  {name:'Boondi (100g)',cal:450,p:10,c:58,f:20,unit:'100g',per100:true,cat:'snacks',tags:'boondi'},
+  {name:'Ribbon Pakoda (100g)',cal:500,p:9,c:64,f:23,unit:'100g',per100:true,cat:'snacks',tags:'ribbon pakoda ola pakoda'},
+  {name:'Kai Murukku (100g)',cal:505,p:9,c:65,f:23,unit:'100g',per100:true,cat:'snacks',tags:'kai murukku'},
+  {name:'Peanut / Groundnut (roasted, 100g)',cal:567,p:26,c:16,f:45,unit:'100g',per100:true,cat:'snacks',hint:'Small pack ≈ 50g',tags:'peanut groundnut kadalai'},
+  {name:'Boiled Peanuts (100g)',cal:180,p:8,c:12,f:11,unit:'100g',per100:true,cat:'snacks',tags:'boiled peanut kadalai'},
+  {name:'Sundal (chana, 100g)',cal:180,p:9,c:26,f:4,unit:'100g',per100:true,cat:'snacks',tags:'sundal chana chickpea'},
+  {name:'Sundal (moong dal, 100g)',cal:160,p:9,c:24,f:2.5,unit:'100g',per100:true,cat:'snacks',tags:'sundal moong'},
+  {name:'Vada (medu, 1)',cal:145,p:5,c:18,f:6,unit:'vada',cat:'snacks',tags:'vada medu urad'},
+  {name:'Masala Vadai / Paruppu Vadai (1)',cal:130,p:6,c:16,f:5,unit:'vadai',cat:'snacks',tags:'masala vadai paruppu chana dal'},
+  {name:'Pakora / Bajji (onion, 100g)',cal:250,p:5,c:30,f:12,unit:'100g',per100:true,cat:'snacks',hint:'1 bajji ≈ 40g',tags:'bajji pakora onion'},
+  {name:'Mirchi Bajji (1)',cal:160,p:3,c:22,f:7,unit:'bajji',cat:'snacks',tags:'mirchi bajji chilli'},
+  {name:'Banana Bajji / Pazham Bajji (1)',cal:180,p:2,c:32,f:6,unit:'bajji',cat:'snacks',tags:'banana bajji pazham'},
+  {name:'Paniyaram / Kuzhi Paniyaram (1)',cal:70,p:2,c:12,f:1.5,unit:'paniyaram',cat:'snacks',tags:'paniyaram kuzhi appe'},
+  {name:'Pani Puri / Golgappa (6 pieces)',cal:200,p:4,c:32,f:6,unit:'6 pieces',cat:'snacks',tags:'pani puri golgappa'},
+  {name:'Samosa (1 medium)',cal:260,p:5,c:30,f:14,unit:'samosa',cat:'snacks',tags:'samosa'},
+  {name:'Corn (boiled, 1 cob)',cal:130,p:4.7,c:29,f:1.8,unit:'cob',cat:'snacks',tags:'corn boiled'},
+  {name:'Corn (masala cup, 1 serving)',cal:180,p:5,c:35,f:4,unit:'cup',cat:'snacks',tags:'masala corn cup street'},
+  {name:'Chaat (aloo chaat, 1 plate)',cal:220,p:5,c:38,f:6,unit:'plate',cat:'snacks',tags:'chaat aloo'},
+
+  // -- CHICKEN WINGS & OTHER WESTERN ----------------------------
+  {name:'Chicken Wings (2 pieces, fried)',cal:200,p:16,c:5,f:14,unit:'2 wings',cat:'fresh',tags:'chicken wings fried'},
+  {name:'Chicken Wings (2 pieces, grilled)',cal:140,p:18,c:0,f:7,unit:'2 wings',cat:'fresh',tags:'chicken wings grilled'},
+  {name:'Chicken Wings Buffalo (2 pieces)',cal:215,p:16,c:6,f:14,unit:'2 wings',cat:'fresh',tags:'chicken wings buffalo spicy'},
+  {name:'Chicken Nuggets (6 pieces)',cal:270,p:14,c:20,f:16,unit:'6 pieces',cat:'fresh',tags:'chicken nuggets'},
+  {name:'Chicken Strips / Tenders (100g)',cal:215,p:20,c:12,f:10,unit:'100g',per100:true,cat:'fresh',tags:'chicken tenders strips'},
+  {name:'Chicken Shawarma (1 wrap)',cal:440,p:28,c:42,f:18,unit:'wrap',cat:'restaurant',tags:'shawarma chicken wrap'},
+  {name:'Mutton Shawarma (1 wrap)',cal:480,p:26,c:42,f:22,unit:'wrap',cat:'restaurant',tags:'mutton shawarma'},
+  {name:'Chicken Roll (1)',cal:380,p:22,c:40,f:14,unit:'roll',cat:'restaurant',tags:'chicken roll kathi'},
+  {name:'Egg Roll (1)',cal:320,p:14,c:38,f:12,unit:'roll',cat:'restaurant',tags:'egg roll kathi'},
+  {name:'Burger — Veg (local)',cal:280,p:7,c:40,f:10,unit:'burger',cat:'restaurant',tags:'veg burger'},
+  {name:'Burger — Chicken (local)',cal:380,p:22,c:38,f:16,unit:'burger',cat:'restaurant',tags:'chicken burger'},
+  {name:'Grilled Chicken Breast (100g)',cal:165,p:31,c:0,f:3.6,unit:'100g',per100:true,cat:'fresh',tags:'grilled chicken breast'},
+  {name:'Boiled Chicken Breast (100g)',cal:150,p:30,c:0,f:2.5,unit:'100g',per100:true,cat:'fresh',tags:'boiled chicken breast'},
+  {name:'Omelette (2 egg)',cal:185,p:13,c:1,f:14,unit:'omelette',cat:'fresh',tags:'omelette egg'},
+  {name:'Masala Omelette (2 egg)',cal:210,p:13,c:5,f:15,unit:'omelette',cat:'fresh',tags:'masala omelette egg'},
+  {name:'Boiled Egg (1)',cal:68,p:5.5,c:0.5,f:4.5,unit:'egg',cat:'fresh',tags:'boiled egg'},
+  {name:'Scrambled Eggs (2 eggs)',cal:180,p:13,c:2,f:13,unit:'serving',cat:'fresh',tags:'scrambled eggs'},
+
+  // -- MORE DRINKS (South Indian) --------------------------------
+  {name:'Filter Coffee (1 cup with milk & sugar)',cal:60,p:2,c:8,f:2,unit:'cup',cat:'drinks',tags:'filter coffee kaapi decoction'},
+  {name:'Filter Coffee black (1 cup decoction)',cal:15,p:0.5,c:2,f:0.5,unit:'cup',cat:'drinks',tags:'filter coffee kaapi black'},
+  {name:'Tender Coconut Water (1 whole ≈ 250ml)',cal:60,p:1,c:14,f:0.3,unit:'whole',cat:'drinks',tags:'tender coconut water elaneer'},
+  {name:'Nannari Sherbet (200ml)',cal:110,p:0.2,c:27,f:0,unit:'200ml',cat:'drinks',tags:'nannari sherbet'},
+  {name:'Jaljeera (200ml)',cal:35,p:0.5,c:8,f:0.2,unit:'200ml',cat:'drinks',tags:'jaljeera'},
+  {name:'Rose Milk (200ml)',cal:130,p:4,c:22,f:3,unit:'200ml',cat:'drinks',tags:'rose milk'},
+  {name:'Badam Milk (200ml)',cal:160,p:5,c:24,f:5,unit:'200ml',cat:'drinks',tags:'badam milk almond'},
+  {name:'Mango Lassi (200ml)',cal:175,p:4,c:30,f:4,unit:'200ml',cat:'drinks',tags:'mango lassi'},
+  {name:'Buttermilk / Mor (200ml, salted)',cal:40,p:2.5,c:5,f:1,unit:'glass',cat:'drinks',tags:'mor buttermilk chaas'},
+  {name:'Sugarcane Juice (200ml)',cal:112,p:0.5,c:28,f:0,unit:'glass',cat:'drinks',tags:'sugarcane juice karumbu'},
+  {name:'Jigarthanda (1 glass 250ml)',cal:280,p:5,c:50,f:7,unit:'glass',cat:'drinks',tags:'jigarthanda madurai'},
+
+  // -- MORE FRESH/PULSES -----------------------------------------
+  {name:'Coconut (grated, 2 tbsp)',cal:60,p:0.6,c:2.5,f:5.5,unit:'2 tbsp',cat:'fresh',tags:'coconut grated thengai'},
+  {name:'Coconut Milk (100ml)',cal:154,p:1.6,c:3.5,f:15,unit:'100ml',per100:true,cat:'fresh',hint:'Thin milk ≈ 50 kcal/100ml',tags:'coconut milk thengai paal'},
+  {name:'Tamarind (1 tbsp paste)',cal:18,p:0.2,c:4.5,f:0.1,unit:'tbsp',cat:'fresh',tags:'tamarind puli'},
+  {name:'Curry Leaves (1 sprig)',cal:3,p:0.1,c:0.5,f:0.1,unit:'sprig',cat:'fresh',tags:'curry leaves kadi patta'},
+  {name:'Drumstick / Murungakkai (100g)',cal:37,p:2.5,c:8,f:0.2,unit:'100g',per100:true,cat:'fresh',tags:'drumstick moringa murungakkai'},
+  {name:'Raw Banana / Vazhakkai (100g)',cal:110,p:1.5,c:26,f:0.3,unit:'100g',per100:true,cat:'fresh',tags:'raw banana vazhakkai'},
+  {name:'Yam / Chena (100g)',cal:118,p:1.5,c:28,f:0.1,unit:'100g',per100:true,cat:'fresh',tags:'yam chena elephant yam suran'},
+  {name:'Bitter Gourd / Pavakkai (100g)',cal:34,p:1,c:7,f:0.2,unit:'100g',per100:true,cat:'fresh',tags:'bitter gourd pavakkai karela'},
+  {name:'Ridge Gourd / Peerkangai (100g)',cal:20,p:0.7,c:4.3,f:0.1,unit:'100g',per100:true,cat:'fresh',tags:'ridge gourd peerkangai'},
+  {name:'Ash Gourd / Poosanikai (100g)',cal:13,p:0.4,c:3,f:0.1,unit:'100g',per100:true,cat:'fresh',tags:'ash gourd poosanikai winter melon'},
+  {name:'Snake Gourd / Pudalangai (100g)',cal:18,p:0.5,c:3.5,f:0.3,unit:'100g',per100:true,cat:'fresh',tags:'snake gourd pudalangai'},
+  {name:'Jackfruit (raw, 100g)',cal:95,p:1.7,c:23,f:0.6,unit:'100g',per100:true,cat:'fresh',tags:'jackfruit kathal chakka'},
+  {name:'Jackfruit (ripe, 100g)',cal:98,p:1.7,c:24,f:0.6,unit:'100g',per100:true,cat:'fresh',tags:'jackfruit ripe chakka'},
+  {name:'Raw Mango (100g)',cal:60,p:0.8,c:15,f:0.4,unit:'100g',per100:true,cat:'fresh',tags:'raw mango mangai'},
 ];
 
 const MEALS=[
@@ -807,9 +1082,11 @@ const MEALS=[
   {id:'snacks',   name:'Snacks',   icon:'🍎',cls:'meal-snacks',   badge:'#eeecfe',badgeText:'#3a328f'},
 ];
 
-// ─── STATE ─────────────────────────────────────────────────────────
+// --- STATE ---------------------------------------------------------
 let state=JSON.parse(localStorage.getItem('nt3_state')||'{}');
 let goals=JSON.parse(localStorage.getItem('nt3_goals')||'null')||{cal:2000,p:150,c:200,f:65,steps:10000,bw:70};
+// migrate old goals format if bw missing
+if(goals&&!goals.bw)goals.bw=70;
 let activeMeal=null, selectedFood=null, currentFoodFilter='all';
 let exercises=[];
 let charts={};
@@ -836,11 +1113,11 @@ function dayTotals(date){
   return{cal,p,c,f,burned,steps:d.steps||0,weight:d.weight};
 }
 
-// ─── TOAST ─────────────────────────────────────────────────────────
+// --- TOAST ---------------------------------------------------------
 let tt;
 function toast(msg){const el=document.getElementById('toast');el.textContent=msg;el.classList.add('show');clearTimeout(tt);tt=setTimeout(()=>el.classList.remove('show'),2200);}
 
-// ─── NAV ───────────────────────────────────────────────────────────
+// --- NAV -----------------------------------------------------------
 function showPage(id,btn){
   document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
   document.querySelectorAll('.nav-btn').forEach(b=>b.classList.remove('active'));
@@ -852,7 +1129,7 @@ function showPage(id,btn){
   if(id==='reports')showReport('week');
 }
 
-// ─── INIT ──────────────────────────────────────────────────────────
+// --- INIT ----------------------------------------------------------
 function init(){
   const now=new Date();
   document.getElementById('topdate').textContent=now.toLocaleDateString('en-IN',{weekday:'short',day:'numeric',month:'short',year:'numeric'});
@@ -884,7 +1161,7 @@ function saveGoals(){
   save();loadGoalsUI();refreshToday();toast('Goals saved!');
 }
 
-// ─── MEALS GRID ────────────────────────────────────────────────────
+// --- MEALS GRID ----------------------------------------------------
 function buildMealsGrid(){
   const grid=document.getElementById('meals-grid');
   grid.innerHTML=MEALS.map(m=>`
@@ -923,7 +1200,7 @@ function refreshMealCard(date,mealId){
     </div>`).join('');
 }
 
-// ─── TODAY ─────────────────────────────────────────────────────────
+// --- TODAY ---------------------------------------------------------
 function refreshToday(){
   const date=todayStr();
   const t=dayTotals(date);
@@ -940,7 +1217,7 @@ function refreshToday(){
   ['p','c','f'].forEach(k=>{
     const pct=Math.min(100,(t[k]/goals[k])*100);
     document.getElementById('bar-'+k).style.width=pct+'%';
-    document.getElementById('lbl-'+k).textContent=r(t[k])+' / '+goals[k]+'g';
+    document.getElementById('lbl-'+k).textContent=r(t[k])+'  / '+goals[k]+'g';
   });
 
   const ids={breakfast:'ms-b',lunch:'ms-l',dinner:'ms-d',snacks:'ms-s'};
@@ -981,7 +1258,7 @@ function intensityLabel(v){
   return m[v]||'Moderate';
 }
 
-// ─── LOG PAGE ──────────────────────────────────────────────────────
+// --- LOG PAGE ------------------------------------------------------
 function refreshLogPage(){
   const date=document.getElementById('log-date').value||todayStr();
   const d=dayData(date);
@@ -1013,7 +1290,7 @@ function delWorkout(date,idx){
   toast('Workout removed.');
 }
 
-// ─── FOOD MODAL ────────────────────────────────────────────────────
+// --- FOOD MODAL ----------------------------------------------------
 function openModal(mealId){
   const m=MEALS.find(x=>x.id===mealId);
   activeMeal=mealId;
@@ -1056,12 +1333,16 @@ function searchFood(){
 
   let res;
   if(q.length>=2){
-    // Score: exact name match > word start match > contains
-    res=pool.filter(f=>f.name.toLowerCase().includes(q)||(f.brand&&f.brand.toLowerCase().includes(q)));
+    // Score: exact name match > word start match > contains > tags
+    res=pool.filter(f=>
+      f.name.toLowerCase().includes(q)||
+      (f.brand&&f.brand.toLowerCase().includes(q))||
+      (f.tags&&f.tags.toLowerCase().includes(q))
+    );
     res.sort((a,b)=>{
       const aName=a.name.toLowerCase(), bName=b.name.toLowerCase();
-      const aEx=aName.startsWith(q)?0:aName.split(' ').some(w=>w.startsWith(q))?1:2;
-      const bEx=bName.startsWith(q)?0:bName.split(' ').some(w=>w.startsWith(q))?1:2;
+      const aEx=aName.startsWith(q)?0:aName.split(' ').some(w=>w.startsWith(q))?1:aName.includes(q)?2:3;
+      const bEx=bName.startsWith(q)?0:bName.split(' ').some(w=>w.startsWith(q))?1:bName.includes(q)?2:3;
       return aEx-bEx;
     });
   } else {
@@ -1205,7 +1486,7 @@ function confirmAddFood(){
   toast('Added '+entry.name+'!');
 }
 
-// ─── WORKOUT MODAL ─────────────────────────────────────────────────
+// --- WORKOUT MODAL -------------------------------------------------
 function openWorkoutModal(){
   exercises=[];
   document.getElementById('exercise-list').innerHTML='';
@@ -1300,7 +1581,7 @@ function confirmWorkout(){
   toast(`Workout logged! ~${cals} kcal burned 🔥`);
 }
 
-// ─── STEPS / WEIGHT ────────────────────────────────────────────────
+// --- STEPS / WEIGHT ------------------------------------------------
 function logSteps(){
   const date=document.getElementById('log-date').value||todayStr();
   dayData(date).steps=+document.getElementById('inp-steps').value||0;
@@ -1317,7 +1598,7 @@ function logWeight(){
   save();if(date===todayStr())refreshToday();toast('Weight saved & updated for calorie calc!');
 }
 
-// ─── TRENDS ────────────────────────────────────────────────────────
+// --- TRENDS --------------------------------------------------------
 function getLast30(){
   const days=[];
   for(let i=29;i>=0;i--){const d=new Date();d.setDate(d.getDate()-i);days.push(d.toISOString().slice(0,10));}
@@ -1365,7 +1646,7 @@ function buildTrends(){
     .map(m=>`<div style="display:flex;align-items:center;gap:8px;"><span style="width:11px;height:11px;border-radius:3px;background:${m.c};flex-shrink:0;display:inline-block;"></span><span style="color:var(--text2);">${m.l}</span><span style="font-weight:600;font-family:'DM Mono',monospace;">${m.v}g</span><span style="font-size:10px;color:var(--text3);">avg/day</span></div>`).join('');
 }
 
-// ─── REPORTS ───────────────────────────────────────────────────────
+// --- REPORTS -------------------------------------------------------
 function showReport(type){
   ['week','month'].forEach(t=>document.getElementById('tab-'+t).className='btn'+(t===type?'':' sec'));
   const daysN=type==='week'?7:30;
